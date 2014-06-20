@@ -38,7 +38,9 @@ end
 
 ActionController::Base.allow_rescue = false
 
-DatabaseCleaner.strategy = :transaction
+# to run with rake parallel:features we have to set the strategy as transaction
+# DatabaseCleaner.strategy = :transaction
+DatabaseCleaner.strategy = :truncation
 
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
