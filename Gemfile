@@ -33,8 +33,10 @@ group :test do
   gem 'fabrication'
   gem 'database_cleaner'
   gem 'cucumber-rails', require: false
+  gem 'selenium-webdriver'
   gem 'poltergeist'
   gem 'httparty'
+  gem 'site_prism'
 end
 
 gem 'settingslogic'
