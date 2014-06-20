@@ -32,3 +32,4 @@ end
 
 gem 'settingslogic'
 gem 'enumerate_it'
+gem 'rails-i18n'
