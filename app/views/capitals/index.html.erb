@@ -1,10 +1,17 @@
-<h1><%= t('activerecord.models.capital.other') %> <small><%= t('crud.title.index') %></small></h1>
-
-<%= link_to new_capital_path do %>
-  <button type="button" class="btn btn-primary new_button">
-    <span class="glyphicon glyphicon-plus"></span> <%= t('crud.actions.new') %>
-  </button>
-<% end %>
+<h1>
+  <div class="row">
+    <div class="col-md-10 page-title">
+      <%= t('activerecord.models.capital.other') %> <small><%= t('crud.title.index') %></small>
+    </div>
+    <div class="col-md-2">
+      <%= link_to new_capital_path do %>
+        <button type="button" class="btn btn-primary new_button">
+          <span class="glyphicon glyphicon-plus"></span> <%= t('crud.actions.new') %>
+        </button>
+      <% end %>
+    </div>
+  </div>
+</h1>
 
 <table class="table table-striped">
   <thead>
@@ -41,7 +48,7 @@
 </table>
 
 <% unless @capitals.present? %>
-  <div class="container no-results">
+  <div class="no-results">
     <p class="bg-info"><%= t('crud.empty') %></p>
   </div>
 <% end %>
