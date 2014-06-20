@@ -14,5 +14,8 @@ module WiseMoney
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**/*.{yml}').to_s]
     config.i18n.default_locale = :'pt-BR'
 
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    config.assets.precompile += %w( *.svg *.eot *.woff *.ttf )
+
   end
 end
