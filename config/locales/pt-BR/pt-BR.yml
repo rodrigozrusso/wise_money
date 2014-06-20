@@ -1,3 +1,7 @@
 # encoding: UTF-8
 pt-BR:
   hello: 'Ola mundo'
+  enumerations:
+    transaction_status:
+      to_confirm: À Confirmar
+      confirmed: Confirmado

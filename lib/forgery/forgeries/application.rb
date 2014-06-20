@@ -8,4 +8,8 @@ class Forgery::Application < Forgery
     shuffle(:capital_names)
   end
 
+  def self.transaction_description
+    shuffle(:transaction_descriptions)
+  end
+
 end

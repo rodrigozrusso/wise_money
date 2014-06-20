@@ -1,3 +1,7 @@
 # encoding: UTF-8
 en:
   hello: 'Hello world'
+  enumerations:
+    transaction_status:
+      to_confirm: To Confirm
+      confirmed: Confirmed

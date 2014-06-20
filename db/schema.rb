@@ -11,12 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140620014653) do
+ActiveRecord::Schema.define(version: 20140620020748) do
 
   create_table "capitals", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "transactions", force: true do |t|
+    t.string   "description"
+    t.integer  "status"
+    t.decimal  "total", precision: 8, scale: 2
+    t.datetime "checked_at"
+    t.integer  "income_capital_id"
+    t.integer  "expense_capital_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "transactions", ["expense_capital_id"], name: "index_transactions_on_expense_capital_id"
+  add_index "transactions", ["income_capital_id"], name: "index_transactions_on_income_capital_id"
 
 end
