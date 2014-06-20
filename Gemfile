@@ -18,6 +18,7 @@ gem 'spring', group: :development
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-nav'
+  gem 'parallel_tests'
 end
 
 group :development do
@@ -31,7 +32,7 @@ group :test do
   gem 'forgery'
   gem 'fabrication'
   gem 'database_cleaner'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false
 end
 
 gem 'settingslogic'

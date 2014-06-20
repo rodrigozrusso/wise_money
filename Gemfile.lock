@@ -91,6 +91,9 @@ GEM
     multi_test (0.1.1)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    parallel (1.0.0)
+    parallel_tests (0.16.10)
+      parallel
     polyglot (0.3.5)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -193,6 +196,7 @@ DEPENDENCIES
   forgery
   jbuilder (~> 2.0)
   jquery-rails
+  parallel_tests
   pry-nav
   pry-rails
   rails (= 4.1.1)
