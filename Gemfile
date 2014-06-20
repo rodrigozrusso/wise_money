@@ -33,6 +33,8 @@ group :test do
   gem 'fabrication'
   gem 'database_cleaner'
   gem 'cucumber-rails', require: false
+  gem 'poltergeist'
+  gem 'httparty'
 end
 
 gem 'settingslogic'
