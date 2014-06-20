@@ -18,16 +18,20 @@ gem 'spring', group: :development
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-nav'
-  gem 'rspec-rails'
-  gem 'simplecov'
-  gem 'forgery'
-  gem 'fabrication'
-  gem 'database_cleaner'
 end
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'simplecov'
+  gem 'forgery'
+  gem 'fabrication'
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
 end
 
 gem 'settingslogic'
