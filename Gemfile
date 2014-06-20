@@ -31,3 +31,4 @@ group :development do
 end
 
 gem 'settingslogic'
+gem 'enumerate_it'
