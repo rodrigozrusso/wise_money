@@ -20,6 +20,9 @@ group :development, :test do
   gem 'pry-nav'
   gem 'rspec-rails'
   gem 'simplecov'
+  gem 'forgery'
+  gem 'fabrication'
+  gem 'database_cleaner'
 end
 
 group :development do
