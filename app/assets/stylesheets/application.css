@@ -14,3 +14,19 @@
  *= require_tree .
  *= require_self
  */
+
+.white {
+    color: #FFFFFF;
+}
+
+.black {
+    color: #000000;
+}
+
+.blue {
+    color: #428bca;
+}
+
+.no-results p {
+  padding: 16px;
+}

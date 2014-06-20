@@ -1,25 +1,47 @@
-<h1>Listing capitals</h1>
+<h1><%= t('activerecord.models.capital.other') %> <small><%= t('crud.title.index') %></small></h1>
 
-<table>
+<%= link_to new_capital_path do %>
+  <button type="button" class="btn btn-primary new_button">
+    <span class="glyphicon glyphicon-plus"></span> <%= t('crud.actions.new') %>
+  </button>
+<% end %>
+
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= t('activerecord.attributes.capital.name') %></th>
+      <th colspan="3"><%= t('crud.title.actions') %></th>
     </tr>
   </thead>
 
   <tbody>
     <% @capitals.each do |capital| %>
       <tr>
+        <td><%= capital.id %></td>
         <td><%= capital.name %></td>
-        <td><%= link_to 'Show', capital %></td>
-        <td><%= link_to 'Edit', edit_capital_path(capital) %></td>
-        <td><%= link_to 'Destroy', capital, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td>
+          <%= link_to capital do %>
+            <span class="glyphicon glyphicon-info-sign blue"></span> <%= t('crud.actions.show') %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_capital_path(capital) do %>
+            <span class="glyphicon glyphicon-pencil blue"></span> <%= t('crud.actions.edit') %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to capital, method: :delete, data: { confirm: t('crud.confirm') } do %>
+            <span class="glyphicon glyphicon-trash blue"></span> <%= t('crud.actions.destroy') %>
+          <% end %>
+        </td>
+     </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Capital', new_capital_path %>
+<% unless @capitals.present? %>
+  <div class="container no-results">
+    <p class="bg-info"><%= t('crud.empty') %></p>
+  </div>
+<% end %>
