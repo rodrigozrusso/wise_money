@@ -18,6 +18,10 @@ Entao(/^devo estar na criacao de capital$/) do
   expect(CapitalNew.new.displayed?).to be true
 end
 
+Entao(/^a pagina tem titulo "(.*?)"$/) do |title|
+  expect(@page.page_title.text).to eq(title)
+end
+
 Entao(/^a pagina tem as colunas "(.*?)"$/) do |columns|
   expect(@page.table_headers.map { |h| h.text }).to eq(columns.split('|'))
 end

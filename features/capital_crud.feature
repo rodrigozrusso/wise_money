@@ -10,6 +10,7 @@
     Dado que nao exista nenhum capital
     Quando acesso a listagem de capital
     Entao devo estar na listagem de capital
+    E a pagina tem titulo "Capitais Busca"
     E a pagina tem as colunas "ID|Nome|Ações"
     E a pagina nao tem resultados "Nenhum Resultado Encontrado!"
 
