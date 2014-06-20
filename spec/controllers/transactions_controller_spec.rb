@@ -23,7 +23,7 @@ describe TransactionsController do
   # This should return the minimal set of attributes required to create a valid
   # Transaction. As you add validations to Transaction, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "description" => "MyString" } }
+  let(:valid_attributes) { { "description" => "MyString", status: 1 } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
