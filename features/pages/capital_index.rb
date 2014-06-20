@@ -1,6 +1,6 @@
 class CapitalIndex < SitePrism::Page
 
-  set_url '/capitals'
+  set_url 'capitals'
   set_url_matcher /capitals/
 
   element :page_title, '.page-title'

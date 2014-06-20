@@ -20,3 +20,10 @@
     Quando acesso a listagem de capital
     E clico no botao novo
     Entao devo estar na criacao de capital
+
+  @smoke_test
+  Cenario: Listagem 5 itens
+    Dado que exista 5 capitais
+    Quando acesso a listagem de capital
+    Entao a pagina tem resultados
+    E a pagina tem as capitais criadas
