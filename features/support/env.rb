@@ -1,6 +1,8 @@
 require 'cucumber/rails'
+require 'capybara'
 require 'capybara/cucumber'
 require File.expand_path('../../../config/environment', __FILE__)
+require 'site_prism'
 
 def register_drivers(driver)
   if driver == 'poltergeist'
