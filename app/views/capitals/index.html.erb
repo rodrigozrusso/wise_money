@@ -4,7 +4,7 @@
       <%= t('activerecord.models.capital.other') %> <small><%= t('crud.title.index') %></small>
     </div>
     <div class="col-md-2">
-      <%= link_to new_capital_path, class: 'btn btn-primary new-button', role: 'button' do %>
+      <%= link_to new_capital_path, class: 'btn btn-primary', role: 'button' do %>
         <span class="glyphicon glyphicon-plus"></span> <%= t('crud.actions.new') %>
       <% end %>
     </div>
@@ -26,18 +26,18 @@
         <td><%= capital.id %></td>
         <td><%= capital.name %></td>
         <td>
-          <%= link_to capital, class: 'show-button' do %>
+          <%= link_to capital do %>
             <span class="glyphicon glyphicon-info-sign blue"></span> <%= t('crud.actions.show') %>
           <% end %>
         </td>
         <td>
-          <%= link_to edit_capital_path(capital), class: 'edit-button' do %>
+          <%= link_to edit_capital_path(capital) do %>
             <span class="glyphicon glyphicon-pencil blue"></span> <%= t('crud.actions.edit') %>
           <% end %>
         </td>
         <td>
           <%= render 'delete_modal', capital: capital %>
-          <a href="#" rel="nofollow" data-toggle="modal" data-target="#delete-modal-<%= capital.id%>" class="delete-button">
+          <a href="#" rel="nofollow" data-toggle="modal" data-target="#delete-modal-<%= capital.id%>">
             <span class="glyphicon glyphicon-trash blue"></span> <%= t('crud.actions.destroy') %>
           </a>
         </td>

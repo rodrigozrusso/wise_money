@@ -14,8 +14,8 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default delete-modal-cancel" data-dismiss="modal"><%= t('crud.actions.cancel') %></button>
-        <%= link_to capital, method: :delete, class: 'btn btn-danger delete-modal-confirm', role: 'button'  do %>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><%= t('crud.actions.cancel') %></button>
+        <%= link_to capital, method: :delete, class: 'btn btn-danger', role: 'button'  do %>
           <span class="glyphicon glyphicon-trash white"></span> <%= t('crud.actions.destroy-confirm') %>
         <% end %>
       </div>
