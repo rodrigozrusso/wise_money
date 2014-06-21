@@ -39,3 +39,21 @@
     Quando acesso a listagem de capital
     E clico no botao edicao 1
     Entao devo estar na edicao de capital
+
+  Cenario: Capital Listagem - botao Remocao - confirmada
+    Dado que exista 1 capital
+    Quando acesso a listagem de capital
+    E clico no botao remover 1
+    Entao o modal de remocao abre
+    E confirmo a remocao
+    E devo estar na listagem de capital
+    E a pagina nao tem resultados "Nenhum Resultado Encontrado!"
+
+  Cenario: Capital Listagem - botao Remocao - cancelada
+    Dado que exista 1 capital
+    Quando acesso a listagem de capital
+    E clico no botao remover 1
+    Entao o modal de remocao abre
+    E cancelo a remocao
+    E devo estar na listagem de capital
+    E a pagina tem as capitais criadas

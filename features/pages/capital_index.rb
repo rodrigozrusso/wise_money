@@ -9,4 +9,9 @@ class CapitalIndex < SitePrism::Page
   elements :table_headers, 'table thead th'
   elements :capitals, 'table tbody tr'
 
+  element :modal_title, '.modal-title'
+  element :modal_body, '.modal-body'
+  element :modal_cancel, '.modal-cancel'
+  element :modal_delete, '.modal-delete'
+
 end

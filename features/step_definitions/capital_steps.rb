@@ -21,6 +21,17 @@ end
 Quando(/^clico no botao edicao (\d+)$/) do |i|
   @page.capitals[i.to_i - 1].all('td')[3].find('a').click
 end
+Quando(/^clico no botao remover (\d+)$/) do |i|
+  @page.capitals[i.to_i - 1].all('td')[4].find('a').click
+end
+
+Quando(/^confirmo a remocao$/) do
+  @page.modal_delete.click
+end
+
+Quando(/^cancelo a remocao$/) do
+  @page.modal_cancel.click
+end
 
 Entao(/^devo estar na listagem de capital$/) do
   expect(CapitalIndex.new.displayed?).to be true
@@ -54,4 +65,8 @@ end
 Entao(/^a pagina tem as capita(l|is) criada[s]$/) do |arg1|
   actual = @page.capitals.map{|c| c.all('td')[0..-4].map{|t| t.text} }
   expect(actual).to eq(@models.map{|c| [c.id.to_s, c.name]})
+end
+
+Entao(/^o modal de remocao abre$/) do
+  expect(@page.modal_title.text).to eq('Você Realmente Deseja Remover?')
 end
