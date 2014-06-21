@@ -6,7 +6,7 @@
     Quero poder cadastrar Capitals na Aplicacao
     Para garantir que tenhamos uma Aplicacao com cadastro completo
 
-  Cenario: Listagem Vazia
+  Cenario: Capital Listagem Vazia
     Dado que nao exista nenhum capital
     Quando acesso a listagem de capital
     Entao devo estar na listagem de capital
@@ -15,14 +15,14 @@
     E a pagina nao tem resultados "Nenhum Resultado Encontrado!"
 
   @smoke_test
-  Cenario: Listagem - botao Criacao
+  Cenario: Capital Listagem - botao Criacao
     Dado que nao exista nenhum capital
     Quando acesso a listagem de capital
-    E clico no botao novo
+    E clico no botao criacao
     Entao devo estar na criacao de capital
 
   @smoke_test
-  Cenario: Listagem 5 itens
+  Cenario: Capital Listagem 5 itens
     Dado que exista 5 capitais
     Quando acesso a listagem de capital
     Entao a pagina tem resultados

@@ -12,7 +12,7 @@ Quando(/^acesso a listagem de capital$/) do
   @page.load
 end
 
-Quando(/^clico no botao novo$/) do
+Quando(/^clico no botao criacao$/) do
   @page.new_button.click
 end
 
