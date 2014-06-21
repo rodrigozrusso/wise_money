@@ -27,3 +27,15 @@
     Quando acesso a listagem de capital
     Entao a pagina tem resultados
     E a pagina tem as capitais criadas
+
+  Cenario: Capital Listagem - botao Detalhes
+    Dado que exista 1 capitais
+    Quando acesso a listagem de capital
+    E clico no botao detalhe 1
+    Entao devo estar no detalhe de capital
+
+  Cenario: Capital Listagem - botao Edicao
+    Dado que exista 1 capitais
+    Quando acesso a listagem de capital
+    E clico no botao edicao 1
+    Entao devo estar na edicao de capital

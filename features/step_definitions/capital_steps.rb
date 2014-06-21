@@ -15,12 +15,24 @@ end
 Quando(/^clico no botao criacao$/) do
   @page.new_button.click
 end
+Quando(/^clico no botao detalhe (\d+)$/) do |i|
+  @page.capitals[i.to_i - 1].all('td')[2].find('a').click
+end
+Quando(/^clico no botao edicao (\d+)$/) do |i|
+  @page.capitals[i.to_i - 1].all('td')[3].find('a').click
+end
 
 Entao(/^devo estar na listagem de capital$/) do
   expect(CapitalIndex.new.displayed?).to be true
 end
 Entao(/^devo estar na criacao de capital$/) do
   expect(CapitalNew.new.displayed?).to be true
+end
+Entao(/^devo estar no detalhe de capital$/) do
+  expect(CapitalShow.new.displayed?).to be true
+end
+Entao(/^devo estar na edicao de capital$/) do
+  expect(CapitalEdit.new.displayed?).to be true
 end
 
 Entao(/^a pagina tem titulo "(.*?)"$/) do |title|
