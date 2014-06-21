@@ -15,22 +15,21 @@ end
 Quando(/^clico no botao criacao$/) do
   @page.new_button.click
 end
-Quando(/^clico no botao detalhe (\d+)$/) do |i|
-  @page.capitals[i.to_i - 1].all('td')[2].find('a').click
+Quando(/^clico no botao (\d+) detalhe$/) do |i|
+  @page.show_buttons[i.to_i - 1].click
 end
-Quando(/^clico no botao edicao (\d+)$/) do |i|
-  @page.capitals[i.to_i - 1].all('td')[3].find('a').click
+Quando(/^clico no botao (\d+) edicao$/) do |i|
+  @page.edit_buttons[i.to_i - 1].click
 end
-Quando(/^clico no botao remover (\d+)$/) do |i|
-  @page.capitals[i.to_i - 1].all('td')[4].find('a').click
+Quando(/^clico no botao (\d+) remover$/) do |i|
+  @page.delete_buttons[i.to_i - 1].click
 end
 
 Quando(/^confirmo a remocao$/) do
-  @page.modal_delete.click
+  @page.delete_modal_confirm.click
 end
-
 Quando(/^cancelo a remocao$/) do
-  @page.modal_cancel.click
+  @page.delete_modal_cancel.click
 end
 
 Entao(/^devo estar na listagem de capital$/) do
@@ -51,15 +50,15 @@ Entao(/^a pagina tem titulo "(.*?)"$/) do |title|
   expect(@page.title).to eq('WiseMoney')
 end
 
-Entao(/^a pagina tem as colunas "(.*?)"$/) do |columns|
-  expect(@page.table_headers.map { |h| h.text }).to eq(columns.split('|'))
-end
-
 Entao(/^a pagina tem resultados$/) do
   expect(@page.has_no_results?).to be false
 end
 Entao(/^a pagina nao tem resultados "(.*?)"$/) do |msg|
   expect(@page.no_results.text).to eq(msg)
+end
+
+Entao(/^a pagina tem as colunas "(.*?)"$/) do |columns|
+  expect(@page.table_headers.map { |h| h.text }).to eq(columns.split('|'))
 end
 
 Entao(/^a pagina tem as capita(l|is) criada[s]$/) do |arg1|
@@ -68,5 +67,12 @@ Entao(/^a pagina tem as capita(l|is) criada[s]$/) do |arg1|
 end
 
 Entao(/^o modal de remocao abre$/) do
-  expect(@page.modal_title.text).to eq('Você Realmente Deseja Remover?')
+  expect(@page.delete_modal_title.text).to be
+end
+Entao(/^o modal tem no titulo "(.*?)"$/) do |title|
+  expect(@page.delete_modal_title.text).to eq(title)
+end
+Entao(/^o modal tem no conteudo o capital criado (\d+)$/) do |i|
+  capital = @models[i.to_i - 1]
+  expect(@page.delete_modal_body.text).to eq("#{capital.id} - #{capital.name}")
 end

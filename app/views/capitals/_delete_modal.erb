@@ -4,18 +4,18 @@
 
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="delete-modal-label-<%= capital.id%>">
+        <h4 class="delete-modal-title" id="delete-modal-label-<%= capital.id%>">
           <%= t('crud.confirm') %>
         </h4>
       </div>
 
-      <div class="modal-body">
+      <div class="delete-modal-body">
         <%= "#{capital.id} - #{capital.name}" %>
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default modal-cancel" data-dismiss="modal"><%= t('crud.actions.cancel') %></button>
-        <%= link_to capital, method: :delete, class: 'btn btn-danger modal-delete', role: 'button'  do %>
+        <button type="button" class="btn btn-default delete-modal-cancel" data-dismiss="modal"><%= t('crud.actions.cancel') %></button>
+        <%= link_to capital, method: :delete, class: 'btn btn-danger delete-modal-confirm', role: 'button'  do %>
           <span class="glyphicon glyphicon-trash white"></span> <%= t('crud.actions.destroy') %>
         <% end %>
       </div>

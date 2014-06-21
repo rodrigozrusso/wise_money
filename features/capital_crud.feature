@@ -30,23 +30,31 @@
 
   @smoke_test
   Cenario: Listagem - botao detalhes
-    Dado que exista 1 capitais
+    Dado que exista 1 capital
     Quando acesso a listagem de capital
-    E clico no botao detalhe 1
+    E clico no botao 1 detalhe
     Entao devo estar no detalhe de capital
 
   @smoke_test
   Cenario: Listagem - botao edicao
-    Dado que exista 1 capitais
+    Dado que exista 1 capital
     Quando acesso a listagem de capital
-    E clico no botao edicao 1
+    E clico no botao 1 edicao
     Entao devo estar na edicao de capital
+
+  Cenario: Listagem - botao remocao
+    Dado que exista 1 capital
+    Quando acesso a listagem de capital
+    E clico no botao 1 remover
+    Entao o modal de remocao abre
+    E o modal tem no titulo "Você Realmente Deseja Remover?"
+    E o modal tem no conteudo o capital criado 1
 
   @smoke_test
   Cenario: Listagem - botao remocao - confirmada
     Dado que exista 1 capital
     Quando acesso a listagem de capital
-    E clico no botao remover 1
+    E clico no botao 1 remover
     Entao o modal de remocao abre
     E confirmo a remocao
     E devo estar na listagem de capital
@@ -55,7 +63,7 @@
   Cenario: Listagem - botao remocao - cancelada
     Dado que exista 1 capital
     Quando acesso a listagem de capital
-    E clico no botao remover 1
+    E clico no botao 1 remover
     Entao o modal de remocao abre
     E cancelo a remocao
     E devo estar na listagem de capital
