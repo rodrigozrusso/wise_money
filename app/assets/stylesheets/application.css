@@ -27,6 +27,10 @@
     color: #428bca;
 }
 
+.red {
+    color: #d9534f;
+}
+
 .no-results p {
   padding: 16px;
 }
