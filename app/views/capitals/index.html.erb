@@ -38,9 +38,10 @@
           <% end %>
         </td>
         <td>
-          <%= link_to capital, method: :delete, data: { confirm: t('crud.confirm') } do %>
+          <%= render 'delete_modal', capital: capital %>
+          <a href="#" rel="nofollow" data-toggle="modal" data-target="#delete-modal-<%= capital.id%>">
             <span class="glyphicon glyphicon-trash blue"></span> <%= t('crud.actions.destroy') %>
-          <% end %>
+          </a>
         </td>
      </tr>
     <% end %>

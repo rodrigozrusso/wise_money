@@ -1,0 +1,25 @@
+<div class="modal fade" id="delete-modal-<%= capital.id%>" tabindex="-1" role="dialog" aria-labelledby="delete-modal-label-<%= capital.id%>" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="delete-modal-label-<%= capital.id%>">
+          <%= t('crud.confirm') %>
+        </h4>
+      </div>
+
+      <div class="modal-body">
+        <%= "#{capital.id} - #{capital.name}" %>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default modal-cancel" data-dismiss="modal"><%= t('crud.actions.cancel') %></button>
+        <%= link_to capital, method: :delete, class: 'btn btn-danger modal-delete', role: 'button'  do %>
+          <span class="glyphicon glyphicon-trash white"></span> <%= t('crud.actions.destroy') %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
