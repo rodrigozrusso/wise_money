@@ -8,6 +8,7 @@ pt-BR:
       show: 'Detalhes'
       edit: 'Editar'
       destroy: 'Remover'
+      destroy-confirm: 'Remover!'
       back: 'Voltar'
       save: 'Salvar'
       cancel: 'Cancelar'

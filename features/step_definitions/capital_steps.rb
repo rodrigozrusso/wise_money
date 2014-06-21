@@ -12,24 +12,11 @@ Quando(/^acesso a listagem de capital$/) do
   @page.load
 end
 
-Quando(/^clico no botao criacao$/) do
-  @page.new_button.click
+Quando(/^clico no botao "(.*?)"$/) do |button|
+  click_on(button)
 end
-Quando(/^clico no botao (\d+) detalhe$/) do |i|
-  @page.show_buttons[i.to_i - 1].click
-end
-Quando(/^clico no botao (\d+) edicao$/) do |i|
-  @page.edit_buttons[i.to_i - 1].click
-end
-Quando(/^clico no botao (\d+) remover$/) do |i|
-  @page.delete_buttons[i.to_i - 1].click
-end
-
-Quando(/^confirmo a remocao$/) do
-  @page.delete_modal.confirm_button.click
-end
-Quando(/^cancelo a remocao$/) do
-  @page.delete_modal.cancel_button.click
+Quando(/^clico no botao (\d+) "(.*?)"$/) do |i, button|
+  find(:link_or_button, text: button).click
 end
 
 Entao(/^devo estar na listagem de capital$/) do
