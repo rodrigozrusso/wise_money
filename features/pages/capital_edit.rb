@@ -1,6 +1,8 @@
-class CapitalEdit < SitePrism::Page
+module Pages
+  class CapitalEdit < SitePrism::Page
 
-  set_url 'capitals{/id}/edit'
-  set_url_matcher /capitals\/\d+\/edit/
+    set_url 'capitals{/id}/edit'
+    set_url_matcher /capitals\/\d+\/edit/
 
+  end
 end

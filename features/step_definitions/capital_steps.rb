@@ -8,7 +8,7 @@ Dado(/^que exista (\d+) capita(l|is)$/) do |count, arg1|
 end
 
 Quando(/^acesso a listagem de capital$/) do
-  @page = CapitalIndex.new
+  @page = Pages::CapitalIndex.new
   @page.load
 end
 
@@ -26,23 +26,23 @@ Quando(/^clico no botao (\d+) remover$/) do |i|
 end
 
 Quando(/^confirmo a remocao$/) do
-  @page.delete_modal_confirm.click
+  @page.delete_modal.confirm_button.click
 end
 Quando(/^cancelo a remocao$/) do
-  @page.delete_modal_cancel.click
+  @page.delete_modal.cancel_button.click
 end
 
 Entao(/^devo estar na listagem de capital$/) do
-  expect(CapitalIndex.new.displayed?).to be true
+  expect(Pages::CapitalIndex.new.displayed?).to be true
 end
 Entao(/^devo estar na criacao de capital$/) do
-  expect(CapitalNew.new.displayed?).to be true
+  expect(Pages::CapitalNew.new.displayed?).to be true
 end
 Entao(/^devo estar no detalhe de capital$/) do
-  expect(CapitalShow.new.displayed?).to be true
+  expect(Pages::CapitalShow.new.displayed?).to be true
 end
 Entao(/^devo estar na edicao de capital$/) do
-  expect(CapitalEdit.new.displayed?).to be true
+  expect(Pages::CapitalEdit.new.displayed?).to be true
 end
 
 Entao(/^a pagina tem titulo "(.*?)"$/) do |title|
@@ -67,12 +67,12 @@ Entao(/^a pagina tem as capita(l|is) criada[s]$/) do |arg1|
 end
 
 Entao(/^o modal de remocao abre$/) do
-  expect(@page.delete_modal_title.text).to be
+  expect(@page.delete_modal.title.text).to be
 end
 Entao(/^o modal tem no titulo "(.*?)"$/) do |title|
-  expect(@page.delete_modal_title.text).to eq(title)
+  expect(@page.delete_modal.title.text).to eq(title)
 end
 Entao(/^o modal tem no conteudo o capital criado (\d+)$/) do |i|
   capital = @models[i.to_i - 1]
-  expect(@page.delete_modal_body.text).to eq("#{capital.id} - #{capital.name}")
+  expect(@page.delete_modal.body.text).to eq("#{capital.id} - #{capital.name}")
 end
