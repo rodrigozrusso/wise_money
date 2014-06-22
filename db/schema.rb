@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140620020748) do
   create_table "transactions", force: true do |t|
     t.string   "description"
     t.integer  "status"
-    t.decimal  "total",              precision: 8, scale: 2
+    t.decimal  "total"
     t.datetime "checked_at"
     t.integer  "income_capital_id"
     t.integer  "expense_capital_id"
