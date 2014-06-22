@@ -1,7 +1,7 @@
 # encoding: utf-8
 # language: pt
 
-  Funcionalidade: Cadastro
+  Funcionalidade: Cadastro de Capitais
     Como usuario da Aplicacao
     Quero poder cadastrar Capitais
     Para garantir um cadastro completo
