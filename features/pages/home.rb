@@ -1,5 +1,4 @@
 require_relative 'base'
-require_relative 'menu_section'
 
 module Pages
   class Home < Pages::Base
@@ -7,7 +6,7 @@ module Pages
     set_url ''
     set_url_matcher //
 
-    section :menu, Pages::MenuSection, '#top_menu'
+    section :menu, Pages::Sections::Menu, '#top_menu'
 
   end
 end

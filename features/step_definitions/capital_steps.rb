@@ -65,7 +65,7 @@ Entao(/^a pagina tem as capita(l|is) criada[s]$/) do |arg1|
   expect(actual).to eq(@models.map{|c| [c.id.to_s, c.name]})
 end
 Entao(/^a pagina tem os detalhes da capital (\d+)$/) do |i|
-  actual = @page.fields.map{|f| f.value }
+  actual = @page.form.fields.map{|f| f.value }
   expect(actual).to eq([@models[i.to_i - 1].name])
 end
 

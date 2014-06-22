@@ -6,7 +6,7 @@ module Pages
     set_url 'capitals{/id}'
     set_url_matcher /capitals\/\d+/
 
-    elements :fields, '.form-inputs input'
+    section :form, Pages::Sections::CapitalForm, '.form-horizontal'
 
   end
 end

@@ -6,5 +6,7 @@ module Pages
     set_url 'capitals/new'
     set_url_matcher /capitals\/new/
 
+    section :form, Pages::Sections::CapitalForm, '.form-horizontal'
+
   end
 end
