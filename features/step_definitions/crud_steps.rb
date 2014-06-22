@@ -12,6 +12,6 @@ end
 Entao(/^o modal de remocao abre$/) do
   expect(@page.delete_modal.title.text).to be
 end
-Entao(/^o modal tem no titulo "(.*?)"$/) do |title|
+Entao(/^o modal de remocao tem titulo "(.*?)"$/) do |title|
   expect(@page.delete_modal.title.text).to eq(title)
 end

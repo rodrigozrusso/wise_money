@@ -26,7 +26,7 @@
     Dado que exista apenas 5 "Capital" do tipo "capital_valid"
     Quando acesso "CapitalIndex"
     Entao a pagina tem resultados
-    E a pagina tem as capitais criadas
+    E a pagina lista os capitais criadas
 
   @smoke_test
   Cenario: Listagem - botao detalhes
@@ -48,8 +48,8 @@
     Quando acesso "CapitalIndex"
     E clico no botao 1 "Remover"
     Entao o modal de remocao abre
-    E o modal tem no titulo "Você Realmente Deseja Remover?"
-    E o modal tem no conteudo o capital criado 1
+    E o modal de remocao tem titulo "Você Realmente Deseja Remover?"
+    E o modal de remocao tem o capital criado 1
 
   @smoke_test
   Cenario: Listagem - botao remocao - confirmada
@@ -69,14 +69,14 @@
     Entao o modal de remocao abre
     E clico no botao "Cancelar"
     E estou em "CapitalIndex"
-    E a pagina tem as capitais criadas
+    E a pagina lista os capitais criadas
 
   Cenario: Detalhes - informacoes
     Dado que exista apenas 1 "Capital" do tipo "capital_valid"
     Quando acesso "CapitalShow" pelo id do ultimo
     Entao estou em "CapitalShow"
     E a pagina tem titulo "Capitais Detalhes"
-    E a pagina tem os detalhes da capital 1
+    E a pagina detalha o capital 1
 
   Cenario: Detalhes - botao voltar
     Dado que exista apenas 1 "Capital" do tipo "capital_valid"
@@ -107,7 +107,7 @@
     Quando acesso "CapitalEdit" pelo id do ultimo
     Entao estou em "CapitalEdit"
     E a pagina tem titulo "Capitais Edição"
-    E a pagina tem os detalhes da capital 1
+    E a pagina detalha o capital 1
 
   Cenario: Edicao - botao voltar
     Dado que exista apenas 1 "Capital" do tipo "capital_valid"
