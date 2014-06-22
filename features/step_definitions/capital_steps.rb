@@ -1,12 +1,3 @@
-Dado(/^que nao exista nenhum capital$/) do
-  Capital.all { |m| m.delete }
-end
-
-Dado(/^que exista (\d+) capita(l|is)$/) do |count, arg1|
-  Capital.all { |m| m.delete }
-  @models = Fabricate.times(count.to_i, :capital_valid)
-end
-
 Quando(/^clico no botao "(.*?)"$/) do |button|
   click_on(button)
 end
