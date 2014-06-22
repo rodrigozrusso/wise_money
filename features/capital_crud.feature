@@ -58,7 +58,7 @@
     E clico no botao 1 "Remover"
     Entao o modal de remocao abre
     E clico no botao "Remover!"
-    E devo ver a mensagem de sucesso "Capital was successfully destroyed."
+    E vejo a mensagem de sucesso "Capital was successfully destroyed."
     E estou em "CapitalIndex"
     E a pagina nao tem resultados "Nenhum Resultado Encontrado!"
 
@@ -101,6 +101,14 @@
     Quando acesso "CapitalNew"
     E clico no botao "Voltar"
     Entao estou em "CapitalIndex"
+
+  Cenario: Criacao - salvar
+    Dado que nao exista nenhum "Capital"
+    Quando acesso "CapitalNew"
+    E preencho o formulario com "capital_valid"
+    E clico no botao "Salvar"
+    Entao estou em "CapitalShow"
+    E a pagina detalha o capital 1
 
   Cenario: Edicao - informacoes
     Dado que exista apenas 1 "Capital" do tipo "capital_valid"

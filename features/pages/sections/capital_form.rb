@@ -4,6 +4,10 @@ module Pages
 
       elements :fields, '.form-inputs input'
 
+      def fill(capital)
+        fields[0].set capital.name
+      end
+
     end
   end
 end

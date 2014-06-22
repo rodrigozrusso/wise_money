@@ -21,10 +21,12 @@ Quando(/^clico no botao (\d+) "(.*?)"$/) do |i, button|
 end
 
 Entao(/^estou em "(.*?)"$/) do |page|
-  expect("Pages::#{page}".constantize.new.displayed?).to be true
+  page = "Pages::#{page}".constantize.new
+  expect(page.displayed?).to be true
+  @page = page
 end
 
-Entao(/^devo ver a mensagem de sucesso "(.*?)"$/) do |msg|
+Entao(/^vejo a mensagem de sucesso "(.*?)"$/) do |msg|
   expect(@page.success_message.text[2..-1]).to eq(msg)
 end
 
