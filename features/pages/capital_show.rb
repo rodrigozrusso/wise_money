@@ -4,5 +4,7 @@ module Pages
     set_url 'capitals{/id}'
     set_url_matcher /capitals\/\d+/
 
+    elements :fields, '.form-inputs input'
+
   end
 end

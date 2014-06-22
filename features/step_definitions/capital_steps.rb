@@ -11,6 +11,10 @@ Quando(/^acesso a listagem de capital$/) do
   @page = Pages::CapitalIndex.new
   @page.load
 end
+Quando(/^acesso os detalhes de capital (\d+)$/) do |i|
+  @page = Pages::CapitalShow.new
+  @page.load(id: @models[i.to_i - 1].id)
+end
 
 Quando(/^clico no botao "(.*?)"$/) do |button|
   click_on(button)
@@ -55,6 +59,10 @@ end
 Entao(/^a pagina tem as capita(l|is) criada[s]$/) do |arg1|
   actual = @page.capitals.map{|c| c.all('td')[0..-4].map{|t| t.text} }
   expect(actual).to eq(@models.map{|c| [c.id.to_s, c.name]})
+end
+Entao(/^a pagina tem os detalhes da capital (\d+)$/) do |i|
+  actual = @page.fields.map{|f| f.value }
+  expect(actual).to eq([@models[i.to_i - 1].name])
 end
 
 Entao(/^o modal de remocao abre$/) do

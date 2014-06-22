@@ -42,6 +42,7 @@
     E clico no botao 1 "Editar"
     Entao devo estar na edicao de capital
 
+  @smoke_test
   Cenario: Listagem - botao remocao
     Dado que exista 1 capital
     Quando acesso a listagem de capital
@@ -69,3 +70,21 @@
     E clico no botao "Cancelar"
     E devo estar na listagem de capital
     E a pagina tem as capitais criadas
+
+  Cenario: Detalhes - informacoes
+    Dado que exista 1 capital
+    Quando acesso os detalhes de capital 1
+    Entao devo estar no detalhe de capital
+    E a pagina tem os detalhes da capital 1
+
+  Cenario: Detalhes - botao voltar
+    Dado que exista 1 capital
+    Quando acesso os detalhes de capital 1
+    E clico no botao "Voltar"
+    Entao devo estar na listagem de capital
+
+  Cenario: Detalhes - botao editar
+    Dado que exista 1 capital
+    Quando acesso os detalhes de capital 1
+    E clico no botao "Editar"
+    Entao devo estar na edicao de capital
