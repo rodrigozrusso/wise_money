@@ -75,6 +75,7 @@
     Dado que exista 1 capital
     Quando acesso os detalhes de capital 1
     Entao devo estar no detalhe de capital
+    E a pagina tem titulo "Capitais Detalhes"
     E a pagina tem os detalhes da capital 1
 
   Cenario: Detalhes - botao voltar
@@ -88,3 +89,16 @@
     Quando acesso os detalhes de capital 1
     E clico no botao "Editar"
     Entao devo estar na edicao de capital
+
+  Cenario: Criacao - informacoes
+    Dado que nao exista nenhum capital
+    Quando acesso a criacao de capital
+    Entao devo estar na criacao de capital
+    E a pagina tem titulo "Capitais Nova(o)"
+
+  Cenario: Edicao - informacoes
+    Dado que exista 1 capital
+    Quando acesso a edicao de capital 1
+    Entao devo estar na edicao de capital
+    E a pagina tem titulo "Capitais Edição"
+    E a pagina tem os detalhes da capital 1

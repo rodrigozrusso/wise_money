@@ -1,13 +1,10 @@
 require_relative 'delete_modal_section'
 
 module Pages
-  class TransactionIndex < SitePrism::Page
+  class TransactionIndex < Pages::Base
 
     set_url 'transactions'
     set_url_matcher /transactions/
-
-    element :page_title, '.page-title'
-    element :no_results, '.no-results'
 
     elements :table_headers, 'table thead th'
     elements :transactions, 'table tbody tr'

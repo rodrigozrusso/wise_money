@@ -1,7 +1,8 @@
+require_relative 'base'
 require_relative 'menu_section'
 
 module Pages
-  class Home < SitePrism::Page
+  class Home < Pages::Base
 
     set_url ''
     set_url_matcher //

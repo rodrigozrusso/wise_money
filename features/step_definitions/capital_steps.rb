@@ -15,6 +15,14 @@ Quando(/^acesso os detalhes de capital (\d+)$/) do |i|
   @page = Pages::CapitalShow.new
   @page.load(id: @models[i.to_i - 1].id)
 end
+Quando(/^acesso a criacao de capital$/) do
+  @page = Pages::CapitalNew.new
+  @page.load
+end
+Quando(/^acesso a edicao de capital (\d+)$/) do |i|
+  @page = Pages::CapitalEdit.new
+  @page.load(id: @models[i.to_i - 1].id)
+end
 
 Quando(/^clico no botao "(.*?)"$/) do |button|
   click_on(button)

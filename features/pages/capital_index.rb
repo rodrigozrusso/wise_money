@@ -1,7 +1,8 @@
+require_relative 'base'
 require_relative 'delete_modal_section'
 
 module Pages
-  class CapitalIndex < SitePrism::Page
+  class CapitalIndex < Pages::Base
 
     set_url 'capitals'
     set_url_matcher /capitals/
