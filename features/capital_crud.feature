@@ -57,6 +57,7 @@
     E clico no botao 1 "Remover"
     Entao o modal de remocao abre
     E clico no botao "Remover!"
+    E devo ver a mensagem de sucesso "Capital was successfully destroyed."
     E devo estar na listagem de capital
     E a pagina nao tem resultados "Nenhum Resultado Encontrado!"
 

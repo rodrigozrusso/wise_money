@@ -7,6 +7,7 @@ module Pages
     set_url_matcher /capitals/
 
     element :page_title, '.page-title'
+    element :success_message, '.success-message'
     element :no_results, '.no-results'
 
     elements :table_headers, 'table thead th'

@@ -32,6 +32,10 @@ Entao(/^devo estar na edicao de capital$/) do
   expect(Pages::CapitalEdit.new.displayed?).to be true
 end
 
+Entao(/^devo ver a mensagem de sucesso "(.*?)"$/) do |msg|
+  expect(@page.success_message.text[2..-1]).to eq(msg)
+end
+
 Entao(/^a pagina tem titulo "(.*?)"$/) do |title|
   expect(@page.page_title.text).to eq(title)
   expect(@page.title).to eq('WiseMoney')
