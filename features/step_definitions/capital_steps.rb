@@ -8,20 +8,16 @@ Dado(/^que exista (\d+) capita(l|is)$/) do |count, arg1|
 end
 
 Quando(/^acesso a listagem de capital$/) do
-  @page = Pages::CapitalIndex.new
-  @page.load
+  @page = Pages::CapitalIndex.new.load
 end
 Quando(/^acesso os detalhes de capital (\d+)$/) do |i|
-  @page = Pages::CapitalShow.new
-  @page.load(id: @models[i.to_i - 1].id)
+  @page = Pages::CapitalShow.new.load(id: @models[i.to_i - 1].id)
 end
 Quando(/^acesso a criacao de capital$/) do
-  @page = Pages::CapitalNew.new
-  @page.load
+  @page = Pages::CapitalNew.new.load
 end
 Quando(/^acesso a edicao de capital (\d+)$/) do |i|
-  @page = Pages::CapitalEdit.new
-  @page.load(id: @models[i.to_i - 1].id)
+  @page = Pages::CapitalEdit.new.load(id: @models[i.to_i - 1].id)
 end
 
 Quando(/^clico no botao "(.*?)"$/) do |button|
