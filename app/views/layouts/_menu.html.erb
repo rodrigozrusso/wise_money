@@ -11,10 +11,10 @@
     </div>
     <div class="collapse navbar-collapse" id="top-menu-links">
       <ul class="nav navbar-nav">
-        <li class="menu_item <%= 'active' if @menu_active == :capital %>">
+        <li class="menu_item<%= ' active' if @menu_active == :capital %>">
           <%= link_to t('menu.capital'), capitals_path %>
         </li>
-        <li class="menu_item <%= 'active' if @menu_active == :transaction %>">
+        <li class="menu_item<%= ' active' if @menu_active == :transaction %>">
           <%= link_to t('menu.transaction'), transactions_path %>
         </li>
       </ul>
