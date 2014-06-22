@@ -6,12 +6,4 @@
   </div>
 </h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @capital.name %>
-</p>
-
-<%= link_to t('crud.actions.back'), capitals_path, class: 'btn btn-default', role: 'button' %>
-<%= link_to edit_capital_path(@capital), class: 'btn btn-primary', role: 'button'  do %>
-  <span class="glyphicon glyphicon-pencil"></span> <%= t('crud.actions.edit') %>
-<% end %>
+<%= render 'form', disable: true %>

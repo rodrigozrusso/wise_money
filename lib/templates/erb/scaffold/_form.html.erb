@@ -1,16 +1,23 @@
+<%% disable ||= false %>
 <%%= simple_form_for @<%= singular_table_name %>, html: {class: 'form-horizontal', role: 'form'} do |f| %>
   <%%= f.error_notification %>
 
   <div class="form-inputs">
   <%- attributes.each do |attribute| -%>
-    <%%= f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %> %>
+    <%%= f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>, disabled: disable %>
   <%- end -%>
   </div>
 
   <div class="form-actions form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <%= link_to t('crud.actions.back'), <%= plural_table_name %>_path, class: 'btn btn-default', role: 'button' %>
-      <%= f.button :submit, class: 'btn btn-primary', value: t('crud.actions.save') %>
+      <%%= link_to t('crud.actions.back'), <%= plural_table_name %>_path, class: 'btn btn-default', role: 'button' %>
+      <%% if disable %>
+        <%%= link_to edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-primary', role: 'button'  do %>
+          <span class="glyphicon glyphicon-pencil"></span> <%= t('crud.actions.edit') %>
+        <% end %>
+      <%% else %>
+        <%%= f.button :submit, class: 'btn btn-primary', value: t('crud.actions.save') %>
+      <%% end %>
     </div>
   </div>
 <%% end %>

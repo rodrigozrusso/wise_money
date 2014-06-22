@@ -1,14 +1,21 @@
+<% disable ||= false %>
 <%= simple_form_for @capital, html: {class: 'form-horizontal', role: 'form'} do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
+    <%= f.input :name, disabled: disable %>
   </div>
 
   <div class="form-actions form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <%= link_to t('crud.actions.back'), capitals_path, class: 'btn btn-default', role: 'button' %>
-      <%= f.button :submit, class: 'btn btn-primary', value: t('crud.actions.save') %>
+      <% if disable %>
+        <%= link_to edit_capital_path(@capital), class: 'btn btn-primary', role: 'button'  do %>
+          <span class="glyphicon glyphicon-pencil"></span> <%= t('crud.actions.edit') %>
+        <% end %>
+      <% else %>
+        <%= f.button :submit, class: 'btn btn-primary', value: t('crud.actions.save') %>
+      <% end %>
     </div>
   </div>
 <% end %>
