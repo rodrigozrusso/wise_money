@@ -13,6 +13,22 @@ Quando(/^acesso "(.*?)" pelo id do ultimo$/) do |page|
   @page = "Pages::#{page}".constantize.new.load(id: @models.last.id)
 end
 
+Quando(/^clico no botao "(.*?)"$/) do |button|
+  click_on(button)
+end
+Quando(/^clico no botao (\d+) "(.*?)"$/) do |i, button|
+  find(:link_or_button, text: button).click
+end
+
 Entao(/^estou em "(.*?)"$/) do |page|
   expect("Pages::#{page}".constantize.new.displayed?).to be true
+end
+
+Entao(/^devo ver a mensagem de sucesso "(.*?)"$/) do |msg|
+  expect(@page.success_message.text[2..-1]).to eq(msg)
+end
+
+Entao(/^a pagina tem titulo "(.*?)"$/) do |title|
+  expect(@page.page_title.text).to eq(title)
+  expect(@page.title).to eq('WiseMoney')
 end
