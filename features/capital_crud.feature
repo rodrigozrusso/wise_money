@@ -6,119 +6,102 @@
     Quero poder cadastrar Capitais
     Para garantir um cadastro completo
 
-  Cenario: Listagem - vazia
-    Dado que nao exista nenhum "Capital"
-    Quando acesso "CapitalIndex"
-    Entao estou em "CapitalIndex"
-    E a pagina tem titulo "Capitais Busca"
+  Cenario: Listagem - info
+    Dado acesso "CapitalIndex"
+    Entao a pagina tem titulo "Capitais Busca"
     E a pagina tem as colunas "ID|Nome|Ações"
-    E a pagina nao tem resultados "Nenhum Resultado Encontrado!"
 
-  @smoke_test
-  Cenario: Listagem - botao criacao
-    Dado que nao exista nenhum "Capital"
-    Quando acesso "CapitalIndex"
-    E clico no botao "Nova(o)"
-    Entao estou em "CapitalNew"
+  Cenario: Listagem - vazia
+    Dado acesso "CapitalIndex"
+    Entao a pagina nao tem resultados "Nenhum Resultado Encontrado!"
 
   @smoke_test
   Cenario: Listagem - 5 itens
-    Dado que exista apenas 5 "Capital" do tipo "capital_valid"
-    Quando acesso "CapitalIndex"
-    Entao a pagina tem resultados
-    E a pagina lista os capitais criadas
+    Dado exista 5 "capital_valid" e acesso "CapitalIndex"
+    Entao a pagina lista os capitais criadas
+
+  @smoke_test
+  Cenario: Listagem - botao criacao
+    Dado acesso "CapitalIndex"
+    Quando clico no botao "Nova(o)" e vou para "CapitalNew"
 
   @smoke_test
   Cenario: Listagem - botao detalhes
-    Dado que exista apenas 1 "Capital" do tipo "capital_valid"
-    Quando acesso "CapitalIndex"
-    E clico no botao 1 "Detalhes"
-    Entao estou em "CapitalShow"
+    Dado exista "capital_valid" e acesso "CapitalIndex"
+    Quando clico no botao "Detalhes" 1 e vou para "CapitalShow"
 
   @smoke_test
   Cenario: Listagem - botao edicao
-    Dado que exista apenas 1 "Capital" do tipo "capital_valid"
-    Quando acesso "CapitalIndex"
-    E clico no botao 1 "Editar"
-    Entao estou em "CapitalEdit"
+    Dado exista "capital_valid" e acesso "CapitalIndex"
+    Quando clico no botao "Editar" 1 e vou para "CapitalEdit"
 
   @smoke_test
-  Cenario: Listagem - botao remocao
-    Dado que exista apenas 1 "Capital" do tipo "capital_valid"
-    Quando acesso "CapitalIndex"
-    E clico no botao 1 "Remover"
+  Cenario: Modal Delete - info
+    Dado exista "capital_valid" e acesso "CapitalIndex"
+    Quando clico no botao "Remover" 1
     Entao o modal de remocao abre
     E o modal de remocao tem titulo "Você Realmente Deseja Remover?"
     E o modal de remocao tem o capital criado 1
 
   @smoke_test
-  Cenario: Listagem - botao remocao - confirmada
-    Dado que exista apenas 1 "Capital" do tipo "capital_valid"
-    Quando acesso "CapitalIndex"
-    E clico no botao 1 "Remover"
-    Entao o modal de remocao abre
-    E clico no botao "Remover!"
-    E vejo a mensagem de sucesso "Capital was successfully destroyed."
-    E estou em "CapitalIndex"
+  Cenario: Modal Delete - botao remover
+    Dado exista "capital_valid" e acesso "CapitalIndex"
+    Quando clico no botao "Remover" 1
+    E clico no botao "Remover!" e vou para "CapitalIndex"
+    Entao vejo a mensagem de sucesso "Capital was successfully destroyed."
     E a pagina nao tem resultados "Nenhum Resultado Encontrado!"
 
-  Cenario: Listagem - botao remocao - cancelada
-    Dado que exista apenas 1 "Capital" do tipo "capital_valid"
-    Quando acesso "CapitalIndex"
-    E clico no botao 1 "Remover"
-    Entao o modal de remocao abre
-    E clico no botao "Cancelar"
-    E estou em "CapitalIndex"
-    E a pagina lista os capitais criadas
+  Cenario: Modal Delete - botao cancelar
+    Dado exista "capital_valid" e acesso "CapitalIndex"
+    Quando clico no botao "Remover" 1
+    E clico no botao "Cancelar" e vou para "CapitalIndex"
+    Entao a pagina lista os capitais criadas
 
-  Cenario: Detalhes - informacoes
-    Dado que exista apenas 1 "Capital" do tipo "capital_valid"
-    Quando acesso "CapitalShow" pelo id do ultimo
-    Entao estou em "CapitalShow"
-    E a pagina tem titulo "Capitais Detalhes"
-    E a pagina detalha o capital 1
+  Cenario: Detalhes - info
+    Dado exista "capital_valid" e acesso "CapitalShow" pelo id
+    Entao a pagina tem titulo "Capitais Detalhes"
+    E a pagina detalha o capital
 
   Cenario: Detalhes - botao voltar
-    Dado que exista apenas 1 "Capital" do tipo "capital_valid"
-    Quando acesso "CapitalShow" pelo id do ultimo
-    E clico no botao "Voltar"
-    Entao estou em "CapitalIndex"
+    Dado exista "capital_valid" e acesso "CapitalShow" pelo id
+    Quando clico no botao "Voltar" e vou para "CapitalIndex"
 
   Cenario: Detalhes - botao editar
-    Dado que exista apenas 1 "Capital" do tipo "capital_valid"
-    Quando acesso "CapitalShow" pelo id do ultimo
-    E clico no botao "Editar"
-    Entao estou em "CapitalEdit"
+    Dado exista "capital_valid" e acesso "CapitalShow" pelo id
+    Quando clico no botao "Editar" e vou para "CapitalEdit"
 
-  Cenario: Criacao - informacoes
-    Dado que nao exista nenhum "Capital"
-    Quando acesso "CapitalNew"
-    Entao estou em "CapitalNew"
-    E a pagina tem titulo "Capitais Nova(o)"
+  Cenario: Criacao - info
+    Dado acesso "CapitalNew"
+    Entao a pagina tem titulo "Capitais Nova(o)"
 
   Cenario: Criacao - botao voltar
-    Dado que nao exista nenhum "Capital"
-    Quando acesso "CapitalNew"
-    E clico no botao "Voltar"
-    Entao estou em "CapitalIndex"
+    Dado acesso "CapitalNew"
+    Quando clico no botao "Voltar" e vou para "CapitalIndex"
 
   Cenario: Criacao - salvar
-    Dado que nao exista nenhum "Capital"
-    Quando acesso "CapitalNew"
+    Dado acesso "CapitalNew"
     E preencho o formulario com "capital_valid"
-    E clico no botao "Salvar"
-    Entao estou em "CapitalShow"
-    E a pagina detalha o capital 1
+    Quando clico no botao "Salvar" e vou para "CapitalShow"
+    Entao a pagina detalha o capital
 
-  Cenario: Edicao - informacoes
-    Dado que exista apenas 1 "Capital" do tipo "capital_valid"
-    Quando acesso "CapitalEdit" pelo id do ultimo
-    Entao estou em "CapitalEdit"
-    E a pagina tem titulo "Capitais Edição"
-    E a pagina detalha o capital 1
+  @wip
+  Cenario: Criacao - validacao vazio
+    Dado acesso "CapitalNew"
+    Quando clico no botao "Salvar" e vou para "CapitalNew"
+    Entao vejo a mensagem de erro ""
+
+  @wip
+  Cenario: Criacao - validacao unicidade
+    Dado exista "capital_valid" e acesso "CapitalNew"
+    E preencho o formulario com modelo criado 1
+    Quando clico no botao "Salvar" e vou para "CapitalNew"
+    Entao vejo a mensagem de erro ""
+
+  Cenario: Edicao - info
+    Dado exista "capital_valid" e acesso "CapitalEdit" pelo id
+    Entao a pagina tem titulo "Capitais Edição"
+    E a pagina detalha o capital
 
   Cenario: Edicao - botao voltar
-    Dado que exista apenas 1 "Capital" do tipo "capital_valid"
-    Quando acesso "CapitalEdit" pelo id do ultimo
-    E clico no botao "Voltar"
-    Entao estou em "CapitalIndex"
+    Dado exista "capital_valid" e acesso "CapitalEdit" pelo id
+    Quando clico no botao "Voltar" e vou para "CapitalIndex"

@@ -1,33 +1,39 @@
-Dado(/^que nao exista nenhum "(.*?)"$/) do |model|
-  model.constantize.all { |m| m.delete }
-end
-Dado(/^que exista apenas (\d+) "(.*?)" do tipo "(.*?)"$/) do |count, model, fabricator|
-  model.constantize.all { |m| m.delete }
-  @models = Fabricate.times(count.to_i, fabricator.to_sym)
-end
-
-Quando(/^acesso "(.*?)"$/) do |page|
+Dado(/^acesso "(.*?)"$/) do |page|
   @page = "Pages::#{page}".constantize.new.load
 end
-Quando(/^acesso "(.*?)" pelo id do ultimo$/) do |page|
+Dado(/^exista (\d+ )?"(.*?)" e acesso "(.*?)"$/) do |count, fabricators, page|
+  count ||= 1
+  @models = fabricators.split(',').map{|f| Fabricate.times(count.to_i, f.to_sym)}.flatten
+  @page = "Pages::#{page}".constantize.new.load
+end
+Dado(/^exista (\d+ )?"(.*?)" e acesso "(.*?)" pelo id$/) do |count, fabricators, page|
+  count ||= 1
+  @models = fabricators.split(',').map{|f| Fabricate.times(count.to_i, f.to_sym)}.flatten
   @page = "Pages::#{page}".constantize.new.load(id: @models.last.id)
 end
 
-Quando(/^clico no botao "(.*?)"$/) do |button|
+Quando(/^clico no botao "(.*?)" (\d+)$/) do |button, i|
+  all(:link_or_button, text: button)[i.to_i - 1].click
+end
+Quando(/^clico no botao "(.*?)" e vou para "(.*?)"$/) do |button, page|
   click_on(button)
+  @page = "Pages::#{page}".constantize.new
+  expect(@page.displayed?).to be true
 end
-Quando(/^clico no botao (\d+) "(.*?)"$/) do |i, button|
-  find(:link_or_button, text: button).click
-end
-
-Entao(/^estou em "(.*?)"$/) do |page|
-  page = "Pages::#{page}".constantize.new
-  expect(page.displayed?).to be true
-  @page = page
+Quando(/^clico no botao "(.*?)" (\d+) e vou para "(.*?)"$/) do |button, i, page|
+  all(:link_or_button, text: button)[i.to_i - 1].click
+  @page = "Pages::#{page}".constantize.new
+  expect(@page.displayed?).to be true
 end
 
 Entao(/^vejo a mensagem de sucesso "(.*?)"$/) do |msg|
   expect(@page.success_message.text[2..-1]).to eq(msg)
+end
+Entao(/^vejo a mensagem de alerta "(.*?)"$/) do |msg|
+  expect(@page.warning_message.text[2..-1]).to eq(msg)
+end
+Entao(/^vejo a mensagem de erro "(.*?)"$/) do |msg|
+  expect(@page.error_message.text[2..-1]).to eq(msg)
 end
 
 Entao(/^a pagina tem titulo "(.*?)"$/) do |title|

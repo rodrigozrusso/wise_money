@@ -1,6 +1,3 @@
-Entao(/^a pagina tem resultados$/) do
-  expect(@page.has_no_results?).to be false
-end
 Entao(/^a pagina nao tem resultados "(.*?)"$/) do |msg|
   expect(@page.no_results.text).to eq(msg)
 end

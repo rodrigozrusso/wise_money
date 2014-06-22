@@ -6,7 +6,5 @@ module Pages
     set_url ''
     set_url_matcher //
 
-    section :menu, Pages::Sections::Menu, '#top_menu'
-
   end
 end
