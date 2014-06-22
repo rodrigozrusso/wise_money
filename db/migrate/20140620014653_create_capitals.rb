@@ -5,5 +5,6 @@ class CreateCapitals < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :capitals, :name, unique: true
   end
 end

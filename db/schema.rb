@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20140620020748) do
     t.datetime "updated_at"
   end
 
+  add_index "capitals", ["name"], name: "index_capitals_on_name", unique: true
+
   create_table "transactions", force: true do |t|
     t.string   "description"
     t.integer  "status"

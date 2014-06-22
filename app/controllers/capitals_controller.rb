@@ -2,28 +2,20 @@ class CapitalsController < ApplicationController
   before_action :set_menu
   before_action :set_capital, only: [:show, :edit, :update, :destroy]
 
-  # GET /capitals
-  # GET /capitals.json
   def index
     @capitals = Capital.all
   end
 
-  # GET /capitals/1
-  # GET /capitals/1.json
   def show
   end
 
-  # GET /capitals/new
   def new
     @capital = Capital.new
   end
 
-  # GET /capitals/1/edit
   def edit
   end
 
-  # POST /capitals
-  # POST /capitals.json
   def create
     @capital = Capital.new(capital_params)
 
@@ -38,8 +30,6 @@ class CapitalsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /capitals/1
-  # PATCH/PUT /capitals/1.json
   def update
     respond_to do |format|
       if @capital.update(capital_params)
@@ -52,8 +42,6 @@ class CapitalsController < ApplicationController
     end
   end
 
-  # DELETE /capitals/1
-  # DELETE /capitals/1.json
   def destroy
     @capital.destroy
     respond_to do |format|
@@ -63,12 +51,10 @@ class CapitalsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_capital
       @capital = Capital.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def capital_params
       params.require(:capital).permit(:name)
     end
