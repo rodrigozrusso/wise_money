@@ -1,4 +1,5 @@
 class TransactionsController < ApplicationController
+  before_action :set_menu
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
 
   # GET /transactions
@@ -71,4 +72,9 @@ class TransactionsController < ApplicationController
     def transaction_params
       params.require(:transaction).permit(:description, :status, :total, :checked_at, :income_capital_id, :expense_capital_id)
     end
+
+  def set_menu
+    @menu_active = :transaction
+  end
+
 end
