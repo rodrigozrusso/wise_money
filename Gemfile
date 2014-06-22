@@ -19,6 +19,9 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-nav'
   gem 'parallel_tests'
+  gem 'forgery'
+  gem 'fabrication'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -29,9 +32,6 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'simplecov'
-  gem 'forgery'
-  gem 'fabrication'
-  gem 'database_cleaner'
   gem 'cucumber-rails', require: false
   gem 'selenium-webdriver'
   gem 'poltergeist'
