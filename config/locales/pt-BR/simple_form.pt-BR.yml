@@ -22,3 +22,6 @@ pt-BR:
     # hints:
     #   username: 'User name to sign in.'
     #   password: 'No special characters, please.'
+    placeholders:
+      capital:
+        name: 'Uma conta num banco ou um bem'
