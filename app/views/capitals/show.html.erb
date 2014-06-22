@@ -1,9 +1,17 @@
-<p id="notice"><%= notice %></p>
+<h1>
+  <div class="row">
+    <div class="col-md-10 page-title">
+      <%= t('activerecord.models.capital.other') %> <small><%= t('crud.title.show') %></small>
+    </div>
+  </div>
+</h1>
 
 <p>
   <strong>Name:</strong>
   <%= @capital.name %>
 </p>
 
-<%= link_to 'Edit', edit_capital_path(@capital) %> |
-<%= link_to 'Back', capitals_path %>
+<%= link_to t('crud.actions.back'), capitals_path, class: 'btn btn-default', role: 'button' %>
+<%= link_to edit_capital_path(@capital), class: 'btn btn-primary', role: 'button'  do %>
+  <span class="glyphicon glyphicon-pencil"></span> <%= t('crud.actions.edit') %>
+<% end %>

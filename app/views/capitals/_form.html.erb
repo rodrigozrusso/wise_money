@@ -16,6 +16,9 @@
     <%= f.text_field :name %>
   </div>
   <div class="actions">
+
+    <%= link_to t('crud.actions.back'), capitals_path, class: 'btn btn-default', role: 'button' %>
+
     <%= f.submit %>
   </div>
 <% end %>
