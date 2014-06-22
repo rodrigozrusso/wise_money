@@ -1,7 +1,7 @@
 Fabricator(:transaction) do
 end
 
-Fabricator(:valid_transaction, from: :transaction) do
+Fabricator(:transaction_valid, from: :transaction) do
   description { sequence(:description) { |i| "#{Forgery::Application.transaction_description}-#{i}" } }
   status { TransactionStatus.list.sample }
   total { Forgery(:monetary).money(min: -100.0, max: 1000.0) }
