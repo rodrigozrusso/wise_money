@@ -96,9 +96,21 @@
     Entao estou em "CapitalNew"
     E a pagina tem titulo "Capitais Nova(o)"
 
+  Cenario: Criacao - botao voltar
+    Dado que nao exista nenhum "Capital"
+    Quando acesso "CapitalNew"
+    E clico no botao "Voltar"
+    Entao estou em "CapitalIndex"
+
   Cenario: Edicao - informacoes
     Dado que exista apenas 1 "Capital" do tipo "capital_valid"
     Quando acesso "CapitalEdit" pelo id do ultimo
     Entao estou em "CapitalEdit"
     E a pagina tem titulo "Capitais Edição"
     E a pagina tem os detalhes da capital 1
+
+  Cenario: Edicao - botao voltar
+    Dado que exista apenas 1 "Capital" do tipo "capital_valid"
+    Quando acesso "CapitalEdit" pelo id do ultimo
+    E clico no botao "Voltar"
+    Entao estou em "CapitalIndex"
