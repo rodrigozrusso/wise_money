@@ -7,37 +7,11 @@ Dado(/^que exista (\d+) capita(l|is)$/) do |count, arg1|
   @models = Fabricate.times(count.to_i, :capital_valid)
 end
 
-Quando(/^acesso a listagem de capital$/) do
-  @page = Pages::CapitalIndex.new.load
-end
-Quando(/^acesso os detalhes de capital (\d+)$/) do |i|
-  @page = Pages::CapitalShow.new.load(id: @models[i.to_i - 1].id)
-end
-Quando(/^acesso a criacao de capital$/) do
-  @page = Pages::CapitalNew.new.load
-end
-Quando(/^acesso a edicao de capital (\d+)$/) do |i|
-  @page = Pages::CapitalEdit.new.load(id: @models[i.to_i - 1].id)
-end
-
 Quando(/^clico no botao "(.*?)"$/) do |button|
   click_on(button)
 end
 Quando(/^clico no botao (\d+) "(.*?)"$/) do |i, button|
   find(:link_or_button, text: button).click
-end
-
-Entao(/^devo estar na listagem de capital$/) do
-  expect(Pages::CapitalIndex.new.displayed?).to be true
-end
-Entao(/^devo estar na criacao de capital$/) do
-  expect(Pages::CapitalNew.new.displayed?).to be true
-end
-Entao(/^devo estar no detalhe de capital$/) do
-  expect(Pages::CapitalShow.new.displayed?).to be true
-end
-Entao(/^devo estar na edicao de capital$/) do
-  expect(Pages::CapitalEdit.new.displayed?).to be true
 end
 
 Entao(/^devo ver a mensagem de sucesso "(.*?)"$/) do |msg|
