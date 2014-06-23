@@ -137,3 +137,21 @@
     Quando clico no botao "Salvar"
     Entao vou para "CapitalShow"
     E a pagina detalha o capital
+
+  Cenario: Edicao - validacao vazio
+    Dado exista "capital_valid"
+    E acesso "CapitalEdit" pelo id
+    E preencho o formulario com ""
+    Quando clico no botao "Salvar"
+    Entao vou para "CapitalEdit"
+    E vejo a mensagem de erro "Alguns erros foram encontrados, por favor verifique:"
+    E vejo as mensagens de validacao "* Nome não pode ficar em branco"
+
+  Cenario: Edicao - validacao unicidade
+    Dado exista "capital_saving_account,capital_valid"
+    E acesso "CapitalEdit" pelo id
+    E preencho o formulario com "capital_saving_account"
+    Quando clico no botao "Salvar"
+    Entao vou para "CapitalEdit"
+    E vejo a mensagem de erro "Alguns erros foram encontrados, por favor verifique:"
+    E vejo as mensagens de validacao "* Nome já está em uso"

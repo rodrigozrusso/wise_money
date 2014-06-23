@@ -1,6 +1,6 @@
 Quando(/^preencho o formulario com "(.*?)"$/) do |fabricator|
-  @models = [Fabricate.build(fabricator.to_sym)]
-  @page.form.fill(@models[0])
+  @models = fabricator.present? ? [Fabricate.build(fabricator.to_sym)] : []
+  @page.form.fill(@models.first)
 end
 Quando(/^preencho o formulario com modelo criado$/) do
   @page.form.fill(@models.last)

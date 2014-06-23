@@ -6,7 +6,7 @@ module Pages
       elements :field_groups_with_error, '.form-inputs .has-error'
 
       def fill(capital)
-        fields[0].set capital.name
+        fields[0].set capital ? capital.name : ''
       end
 
       def validation_messages
