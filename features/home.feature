@@ -6,22 +6,24 @@
     Quero poder acessar a Home
     Para garantir as funcionalidades
 
+  Cenario: Home - info
+    Dado acesso "Home"
+    Entao o menu ativo deve ser "Capitais"
+
   Cenario: Menu - Home
-    Quando acesso "Home"
-    Entao estou em "Home"
-    E o menu ativo deve ser "Capitais"
-    E clico no menu "WiseMoney"
-    E estou em "Home"
+    Dado acesso "Home"
+    Quando clico no menu "WiseMoney"
+    E vou para "Home"
     E o menu ativo deve ser "Capitais"
 
   Cenario: Menu - Capital
-    Quando acesso "Home"
-    Entao clico no menu "Capitais"
-    E estou em "CapitalIndex"
+    Dado acesso "Home"
+    Quando clico no menu "Capitais"
+    E vou para "CapitalIndex"
     E o menu ativo deve ser "Capitais"
 
   Cenario: Menu - Transaction
-    Quando acesso "Home"
-    Entao clico no menu "Transações"
-    E estou em "TransactionIndex"
+    Dado acesso "Home"
+    Quando clico no menu "Transações"
+    E vou para "TransactionIndex"
     E o menu ativo deve ser "Transações"

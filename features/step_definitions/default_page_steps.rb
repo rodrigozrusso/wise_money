@@ -1,27 +1,22 @@
+Dado(/^exista (\d+ )?"(.*?)"$/) do |count, fabricators|
+  count ||= 1
+  @models = fabricators.split(',').map{|f| Fabricate.times(count.to_i, f.to_sym)}.flatten
+end
 Dado(/^acesso "(.*?)"$/) do |page|
   @page = "Pages::#{page}".constantize.new.load
 end
-Dado(/^exista (\d+ )?"(.*?)" e acesso "(.*?)"$/) do |count, fabricators, page|
-  count ||= 1
-  @models = fabricators.split(',').map{|f| Fabricate.times(count.to_i, f.to_sym)}.flatten
-  @page = "Pages::#{page}".constantize.new.load
-end
-Dado(/^exista (\d+ )?"(.*?)" e acesso "(.*?)" pelo id$/) do |count, fabricators, page|
-  count ||= 1
-  @models = fabricators.split(',').map{|f| Fabricate.times(count.to_i, f.to_sym)}.flatten
+Dado(/^acesso "(.*?)" pelo id$/) do |page|
   @page = "Pages::#{page}".constantize.new.load(id: @models.last.id)
 end
 
+Quando(/^clico no botao "(.*?)"$/) do |button|
+  click_on(button)
+end
 Quando(/^clico no botao "(.*?)" (\d+)$/) do |button, i|
   all(:link_or_button, text: button)[i.to_i - 1].click
 end
-Quando(/^clico no botao "(.*?)" e vou para "(.*?)"$/) do |button, page|
-  click_on(button)
-  @page = "Pages::#{page}".constantize.new
-  expect(@page.displayed?).to be true
-end
-Quando(/^clico no botao "(.*?)" (\d+) e vou para "(.*?)"$/) do |button, i, page|
-  all(:link_or_button, text: button)[i.to_i - 1].click
+
+Entao(/^vou para "(.*?)"$/) do |page|
   @page = "Pages::#{page}".constantize.new
   expect(@page.displayed?).to be true
 end
