@@ -28,7 +28,10 @@ Entao(/^vejo a mensagem de alerta "(.*?)"$/) do |msg|
   expect(@page.warning_message.text[2..-1]).to eq(msg)
 end
 Entao(/^vejo a mensagem de erro "(.*?)"$/) do |msg|
-  expect(@page.error_message.text[2..-1]).to eq(msg)
+  expect(@page.error_message.text).to eq(msg)
+end
+Entao(/^vejo as mensagens de validacao "(.*?)"$/) do |msgs|
+  expect(@page.form.validation_messages).to eq(msgs.split('|'))
 end
 
 Entao(/^a pagina tem titulo "(.*?)"$/) do |title|

@@ -2,8 +2,8 @@ Quando(/^preencho o formulario com "(.*?)"$/) do |fabricator|
   @models = [Fabricate.build(fabricator.to_sym)]
   @page.form.fill(@models[0])
 end
-Quando(/^preencho o formulario com modelo criado (\d+)$/) do |i|
-  @page.form.fill(@models[i.to_i - 1])
+Quando(/^preencho o formulario com modelo criado$/) do
+  @page.form.fill(@models.last)
 end
 
 Entao(/^a pagina lista os capitais criadas$/) do

@@ -106,15 +106,17 @@
     Dado acesso "CapitalNew"
     Quando clico no botao "Salvar"
     Entao vou para "CapitalNew"
-    E vejo a mensagem de erro ""
+    E vejo a mensagem de erro "Alguns erros foram encontrados, por favor verifique:"
+    E vejo as mensagens de validacao "* Nome não pode ficar em branco"
 
   Cenario: Criacao - validacao unicidade
     Dado exista "capital_valid"
     E acesso "CapitalNew"
-    E preencho o formulario com modelo criado 1
+    E preencho o formulario com modelo criado
     Quando clico no botao "Salvar"
     Entao vou para "CapitalNew"
-    E vejo a mensagem de erro ""
+    E vejo a mensagem de erro "Alguns erros foram encontrados, por favor verifique:"
+    E vejo as mensagens de validacao "* Nome já está em uso"
 
   Cenario: Edicao - info
     Dado exista "capital_valid"
@@ -127,3 +129,11 @@
     E acesso "CapitalEdit" pelo id
     Quando clico no botao "Voltar"
     Entao vou para "CapitalIndex"
+
+  Cenario: Edicao - salvar
+    Dado exista "capital_valid"
+    E acesso "CapitalEdit" pelo id
+    E preencho o formulario com "capital_saving_account"
+    Quando clico no botao "Salvar"
+    Entao vou para "CapitalShow"
+    E a pagina detalha o capital
