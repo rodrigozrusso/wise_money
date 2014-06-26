@@ -9,21 +9,22 @@
   Cenario: Home - info
     Dado acesso "Home"
     Entao o menu ativo deve ser "Capitais"
+    E o menu tem "Capitais|Transações"
 
   Cenario: Menu - Home
     Dado acesso "Home"
     Quando clico no menu "WiseMoney"
-    E vou para "Home"
+    Entao vou para "Home"
     E o menu ativo deve ser "Capitais"
 
   Cenario: Menu - Capital
     Dado acesso "Home"
     Quando clico no menu "Capitais"
-    E vou para "CapitalIndex"
+    Entao vou para "CapitalIndex"
     E o menu ativo deve ser "Capitais"
 
   Cenario: Menu - Transaction
     Dado acesso "Home"
     Quando clico no menu "Transações"
-    E vou para "TransactionIndex"
+    Entao vou para "TransactionIndex"
     E o menu ativo deve ser "Transações"

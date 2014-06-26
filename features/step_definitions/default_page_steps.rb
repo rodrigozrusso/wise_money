@@ -2,6 +2,7 @@ Dado(/^exista (\d+ )?"(.*?)"$/) do |count, fabricators|
   count ||= 1
   @models = fabricators.split(',').map{|f| Fabricate.times(count.to_i, f.to_sym)}.flatten
 end
+
 Dado(/^acesso "(.*?)"$/) do |page|
   @page = "Pages::#{page}".constantize.new.load
 end
