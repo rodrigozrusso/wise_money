@@ -1,12 +1,11 @@
-Quando(/^eu chamo o servico de healthcheck$/) do
-  @service = Service::Healthcheck.new
-  @service.healthcheck
+When(/^I call the healthcheck service$/) do
+  @service = Service::Healthcheck.new.healthcheck
 end
 
-Entao(/^o response deve conter "(.*?)"$/) do |msg|
-  expect(@service.response).to include(msg)
+Then(/^the result should be '(.*?)'$/) do |msg|
+  expect(@service.response).to eq(msg)
 end
 
-Entao(/^o response deve ter http code (\d+)$/) do |code|
+Then(/^the http code should be (\d+)$/) do |code|
   expect(@service.code).to eq(code.to_i)
 end

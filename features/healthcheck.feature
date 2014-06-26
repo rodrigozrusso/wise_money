@@ -1,13 +1,13 @@
 # encoding: utf-8
-# language: pt
+# language: en
 
-  Funcionalidade: Healthcheck da Aplicacao
-    Como Devops da Aplicacao
-    Quero que a aplicacao responda o servico de healthcheck
-    Para garantir que tenhamos a aplicacao monitorada
+  Feature: Application Healthcheck
+    In order to have the application monitored
+    As a devops team
+    I want to have a healthcheck service
 
   @smoke_test
-  Cenario: Servico de Healthcheck
-    Quando eu chamo o servico de healthcheck
-    Entao o response deve conter "{"ok":{"Healthchecks::Database":"OK"}}"
-    E o response deve ter http code 200
+  Scenario: Healthcheck Service
+    When I call the healthcheck service
+    Then the result should be '{"ok":{"Healthchecks::Database":"OK"}}'
+    And the http code should be 200

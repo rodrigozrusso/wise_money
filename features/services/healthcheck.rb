@@ -3,6 +3,7 @@ module Service
 
     def healthcheck
       @response = HTTParty.get("#{APP_URL}healthchecks", {})
+      self
     end
 
     def response
