@@ -1,157 +1,165 @@
 # encoding: utf-8
-# language: pt
+# language: en
 
-  Funcionalidade: Cadastro de Capitais
-    Como usuario da Aplicacao
-    Quero poder cadastrar Capitais
-    Para garantir um cadastro completo
-
-  Cenario: Listagem - info
-    Dado acesso "CapitalIndex"
-    Entao a pagina tem titulo "Capitais Busca"
-    E a pagina tem as colunas "ID|Nome|Ações"
-
-  Cenario: Listagem - vazia
-    Dado acesso "CapitalIndex"
-    Entao a pagina nao tem resultados "Nenhum Resultado Encontrado!"
+  Feature: Capital CRUD
+    In order to have the data up to date
+    As a product owner
+    I want to have a Capital CRUD features
 
   @smoke_test
-  Cenario: Listagem - 5 itens
-    Dado exista 5 "capital_valid"
-    E acesso "CapitalIndex"
-    Entao a pagina lista os capitais criadas
+  Scenario: List page - info
+    Given I am at 'CapitalIndex'
+    Then the page title should be 'Capitais Busca'
+    And the page should has columns 'ID|Nome|Ações'
+
+  Scenario: List page - empty
+    Given I am at 'CapitalIndex'
+    Then the page should has no results with the message 'Nenhum Resultado Encontrado!'
 
   @smoke_test
-  Cenario: Listagem - botao criacao
-    Dado acesso "CapitalIndex"
-    Quando clico no botao "Nova(o)"
-    Entao vou para "CapitalNew"
+  Scenario: List page - 5 items
+    Given there are 5 'capital_valid'
+    And I am at 'CapitalIndex'
+    Then the page should list the saved capitals
 
   @smoke_test
-  Cenario: Listagem - botao detalhes
-    Dado exista "capital_valid"
-    E acesso "CapitalIndex"
-    Quando clico no botao "Detalhes" 1
-    Entao vou para "CapitalShow"
+  Scenario: List page - create button
+    Given I am at 'CapitalIndex'
+    When I click button 'Nova(o)'
+    Then I should be redirected to 'CapitalNew'
 
   @smoke_test
-  Cenario: Listagem - botao edicao
-    Dado exista "capital_valid"
-    E acesso "CapitalIndex"
-    Quando clico no botao "Editar" 1
-    Entao vou para "CapitalEdit"
+  Scenario: List page - show button
+    Given there is 'capital_valid'
+    And I am at 'CapitalIndex'
+    When I click button 'Detalhes'
+    Then I should be redirected to 'CapitalShow'
 
   @smoke_test
-  Cenario: Modal Delete - info
-    Dado exista "capital_valid"
-    E acesso "CapitalIndex"
-    Quando clico no botao "Remover" 1
-    Entao o modal de remocao abre
-    E o modal de remocao tem titulo "Você Realmente Deseja Remover?"
-    E o modal de remocao tem o capital criado 1
+  Scenario: List page - edit button
+    Given there is 'capital_valid'
+    And I am at 'CapitalIndex'
+    When I click button 'Editar'
+    Then I should be redirected to 'CapitalEdit'
 
   @smoke_test
-  Cenario: Modal Delete - botao remover
-    Dado exista "capital_valid"
-    E acesso "CapitalIndex"
-    Quando clico no botao "Remover" 1
-    E clico no botao "Remover!"
-    Entao vou para "CapitalIndex"
-    Entao vejo a mensagem de sucesso "Capital was successfully destroyed."
-    E a pagina nao tem resultados "Nenhum Resultado Encontrado!"
+  Scenario: Delete modal - info
+    Given there is 'capital_valid'
+    And I am at 'CapitalIndex'
+    When I click button 'Remover'
+    Then the remove modal should be opened
+    And the remove modal should has the title 'Você Realmente Deseja Remover?'
+    And the remove modal should show the last saved capital
 
-  Cenario: Modal Delete - botao cancelar
-    Dado exista "capital_valid"
-    E acesso "CapitalIndex"
-    Quando clico no botao "Remover" 1
-    E clico no botao "Cancelar"
-    Entao vou para "CapitalIndex"
-    Entao a pagina lista os capitais criadas
+  @smoke_test
+  Scenario: Delete modal - remove button
+    Given there is 'capital_valid'
+    And I am at 'CapitalIndex'
+    When I click button 'Remover'
+    And I click button 'Remover!'
+    Then I should be redirected to 'CapitalIndex'
+    And I can see the success message 'Capital was successfully destroyed.'
+    And the page should has no results with the message 'Nenhum Resultado Encontrado!'
 
-  Cenario: Detalhes - info
-    Dado exista "capital_valid"
-    E acesso "CapitalShow" pelo id
-    Entao a pagina tem titulo "Capitais Detalhes"
-    E a pagina detalha o capital
+  Scenario: Delete modal - cancel button
+    Given there is 'capital_valid'
+    And I am at 'CapitalIndex'
+    When I click button 'Remover'
+    And I click button 'Cancelar'
+    Then I should be redirected to 'CapitalIndex'
+    And the page should list the saved capitals
 
-  Cenario: Detalhes - botao voltar
-    Dado exista "capital_valid"
-    E acesso "CapitalShow" pelo id
-    Quando clico no botao "Voltar"
-    Entao vou para "CapitalIndex"
+  @smoke_test
+  Scenario: Show page - info
+    Given there is 'capital_valid'
+    And I am at 'CapitalShow' by the last saved
+    Then the page title should be 'Capitais Detalhes'
+    And the page should show the last saved capital
 
-  Cenario: Detalhes - botao editar
-    Dado exista "capital_valid"
-    E acesso "CapitalShow" pelo id
-    Quando clico no botao "Editar"
-    Entao vou para "CapitalEdit"
+  Scenario: Show page - back button
+    Given there is 'capital_valid'
+    And I am at 'CapitalShow' by the last saved
+    When I click button 'Voltar'
+    Then I should be redirected to 'CapitalIndex'
 
-  Cenario: Criacao - info
-    Dado acesso "CapitalNew"
-    Entao a pagina tem titulo "Capitais Nova(o)"
+  @smoke_test
+  Scenario: Show page - edit button
+    Given there is 'capital_valid'
+    And I am at 'CapitalShow' by the last saved
+    When I click button 'Editar'
+    Then I should be redirected to 'CapitalEdit'
 
-  Cenario: Criacao - botao voltar
-    Dado acesso "CapitalNew"
-    Quando clico no botao "Voltar"
-    Entao vou para "CapitalIndex"
+  @smoke_test
+  Scenario: Create page - info
+    Given I am at 'CapitalNew'
+    Then the page title should be 'Capitais Nova(o)'
 
-  Cenario: Criacao - salvar
-    Dado acesso "CapitalNew"
-    E preencho o formulario com "capital_valid"
-    Quando clico no botao "Salvar"
-    Entao vou para "CapitalShow"
-    E a pagina detalha o capital
+  @smoke_test
+  Scenario: Create page - back button
+    Given I am at 'CapitalNew'
+    When I click button 'Voltar'
+    Then I should be redirected to 'CapitalIndex'
 
-  Cenario: Criacao - validacao vazio
-    Dado acesso "CapitalNew"
-    Quando clico no botao "Salvar"
-    Entao vou para "CapitalNew"
-    E vejo a mensagem de erro "Alguns erros foram encontrados, por favor verifique:"
-    E vejo as mensagens de validacao "* Nome não pode ficar em branco"
+  @smoke_test
+  Scenario: Create page - save
+    Given I am at 'CapitalNew'
+    And I fill the form with 'capital_valid'
+    When I click button 'Salvar'
+    Then I should be redirected to 'CapitalShow'
+    And the page should show the last saved capital
 
-  Cenario: Criacao - validacao unicidade
-    Dado exista "capital_valid"
-    E acesso "CapitalNew"
-    E preencho o formulario com modelo criado
-    Quando clico no botao "Salvar"
-    Entao vou para "CapitalNew"
-    E vejo a mensagem de erro "Alguns erros foram encontrados, por favor verifique:"
-    E vejo as mensagens de validacao "* Nome já está em uso"
+  Scenario: Create page - validation empty fields
+    Given I am at 'CapitalNew'
+    When I click button 'Salvar'
+    Then I should be redirected to 'CapitalNew'
+    And I can see the error message 'Alguns erros foram encontrados, por favor verifique:'
+    And I can see the validation message '* Nome não pode ficar em branco'
 
-  Cenario: Edicao - info
-    Dado exista "capital_valid"
-    E acesso "CapitalEdit" pelo id
-    Entao a pagina tem titulo "Capitais Edição"
-    E a pagina detalha o capital
+  Scenario: Create page - validation unicity
+    Given there is 'capital_valid'
+    And I am at 'CapitalNew'
+    And I fill the form with the last saved
+    When I click button 'Salvar'
+    Then I should be redirected to 'CapitalNew'
+    And I can see the error message 'Alguns erros foram encontrados, por favor verifique:'
+    And I can see the validation message '* Nome já está em uso'
 
-  Cenario: Edicao - botao voltar
-    Dado exista "capital_valid"
-    E acesso "CapitalEdit" pelo id
-    Quando clico no botao "Voltar"
-    Entao vou para "CapitalIndex"
+  @smoke_test
+  Scenario: Edit page - info
+    Given there is 'capital_valid'
+    And I am at 'CapitalEdit' by the last saved
+    Then the page title should be 'Capitais Edição'
+    And the page should show the last saved capital
 
-  Cenario: Edicao - salvar
-    Dado exista "capital_valid"
-    E acesso "CapitalEdit" pelo id
-    E preencho o formulario com "capital_saving_account"
-    Quando clico no botao "Salvar"
-    Entao vou para "CapitalShow"
-    E a pagina detalha o capital
+  Scenario: Edit page - back button
+    Given there is 'capital_valid'
+    And I am at 'CapitalEdit' by the last saved
+    When I click button 'Voltar'
+    Then I should be redirected to 'CapitalIndex'
 
-  Cenario: Edicao - validacao vazio
-    Dado exista "capital_valid"
-    E acesso "CapitalEdit" pelo id
-    E preencho o formulario com ""
-    Quando clico no botao "Salvar"
-    Entao vou para "CapitalEdit"
-    E vejo a mensagem de erro "Alguns erros foram encontrados, por favor verifique:"
-    E vejo as mensagens de validacao "* Nome não pode ficar em branco"
+  @smoke_test
+  Scenario: Edit page - save
+    Given there is 'capital_valid'
+    And I am at 'CapitalEdit' by the last saved
+    And I fill the form with 'capital_saving_account'
+    When I click button 'Salvar'
+    Then I should be redirected to 'CapitalShow'
+    And the page should show the last saved capital
 
-  Cenario: Edicao - validacao unicidade
-    Dado exista "capital_saving_account,capital_valid"
-    E acesso "CapitalEdit" pelo id
-    E preencho o formulario com "capital_saving_account"
-    Quando clico no botao "Salvar"
-    Entao vou para "CapitalEdit"
-    E vejo a mensagem de erro "Alguns erros foram encontrados, por favor verifique:"
-    E vejo as mensagens de validacao "* Nome já está em uso"
+  Scenario: Edit page - validation empty fields
+    Given there is 'capital_valid'
+    And I am at 'CapitalEdit' by the last saved
+    And I fill the form with ''
+    When I click button 'Salvar'
+    Then I should be redirected to 'CapitalEdit'
+    And I can see the error message 'Alguns erros foram encontrados, por favor verifique:'
+    And I can see the validation message '* Nome não pode ficar em branco'
+
+  Scenario: Edit page - validation unicity
+    Given there is 'capital_saving_account,capital_valid'
+    And I am at 'CapitalEdit' by the last saved
+    And I fill the form with 'capital_saving_account'
+    When I click button 'Salvar'
+    Then I should be redirected to 'CapitalEdit'
+    And I can see the error message 'Alguns erros foram encontrados, por favor verifique:'
+    And I can see the validation message '* Nome já está em uso'

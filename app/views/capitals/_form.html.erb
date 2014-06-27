@@ -1,6 +1,6 @@
 <% disable ||= false %>
 <%= simple_form_for @capital,
-    :url => @capital.id ? update_capital_path(@capital) : create_capital_path,
+    url: @capital.id ? update_capital_path(@capital) : create_capital_path,
     html: {class: 'form-horizontal', role: 'form'} do |f| %>
   <%= f.error_notification %>
 

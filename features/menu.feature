@@ -11,6 +11,7 @@
     Then the active menu should be 'Capitais'
     And the menu has 'Capitais|Transações'
 
+  @smoke_test
   Scenario Outline: Menu - links
     Given I am at 'Home'
     When I click at menu '<link>'
