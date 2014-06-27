@@ -1,2 +1,14 @@
 # encoding: UTF-8
 en:
+  activerecord:
+    models:
+      capital:
+        one: 'Capital'
+        other: 'Capitals'
+    attributes:
+      capital:
+        name: 'Name'
+  enumerations:
+    transaction_status:
+      to_confirm: 'To confirm'
+      confirmed: 'Confirmed'

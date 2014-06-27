@@ -8,8 +8,8 @@
 
   Scenario: Menu - info
     Given I am at 'Home'
-    Then the active menu should be 'Capitais'
-    And the menu has 'Capitais|Transações'
+    Then the active menu should be 'Capitals'
+    And the menu has 'Capitals|Transactions'
 
   @smoke_test
   Scenario Outline: Menu - links
@@ -20,6 +20,6 @@
 
     Examples:
       |link|page|active_menu|
-      |WiseMoney|Home|Capitais|
-      |Capitais|CapitalIndex|Capitais|
-      |Transações|TransactionIndex|Transações|
+      |WiseMoney|Home|Capitals|
+      |Capitals|CapitalIndex|Capitals|
+      |Transactions|TransactionIndex|Transactions|

@@ -1,2 +1,30 @@
 # encoding: UTF-8
 en:
+  crud:
+    confirm: 'Do you really want to remove?'
+    empty: 'No results was found!'
+    actions:
+      new: 'New'
+      show: 'Show'
+      edit: 'Edit'
+      destroy: 'Remove'
+      destroy-confirm: 'Remove!'
+      back: 'Back'
+      save: 'Save'
+      cancel: 'Cancel'
+      all: 'All'
+      search: 'Search'
+    title:
+      index: 'Search'
+      show: 'Show'
+      new: 'New'
+      edit: 'Edit'
+      actions: 'Actions'
+      search: 'What do you want to search?'
+  views:
+    pagination:
+      first: '&laquo; First'
+      last: 'Last &raquo;'
+      previous: '&lsaquo; Previous'
+      next: 'Next &rsaquo;'
+      truncate: '...'

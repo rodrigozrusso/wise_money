@@ -1,2 +1,6 @@
 # encoding: UTF-8
 en:
+  menu:
+    home: 'Wise Money'
+    capital: 'Capitals'
+    transaction: 'Transactions'

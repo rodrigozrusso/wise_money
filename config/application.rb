@@ -12,7 +12,7 @@ module WiseMoney
     config.time_zone = 'Brasilia'
 
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**/*.{yml}').to_s]
-    config.i18n.default_locale = :'pt-BR'
+    config.i18n.default_locale = :'en'
 
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.assets.precompile += %w( *.svg *.eot *.woff *.ttf )
