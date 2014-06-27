@@ -10,7 +10,7 @@ pt-BR:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Alguns erros foram encontrados, por favor verifique:"
+      default_message: '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Alguns erros foram encontrados, por favor verifique:'
     # Labels and hints examples
     # labels:
     #   password: 'Password'

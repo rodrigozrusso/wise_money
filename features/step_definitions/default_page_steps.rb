@@ -25,13 +25,13 @@ Then(/^the page title should be '(.*?)'$/) do |title|
 end
 
 Then(/^I can see the success message '(.*?)'$/) do |msg|
-  expect(@page.success_message.text[2..-1]).to eq(msg)
+  expect(@page.success_message.text.gsub(/× /, '')).to eq(msg)
 end
 Then(/^I can see the warning message '(.*?)'$/) do |msg|
-  expect(@page.warning_message.text[2..-1]).to eq(msg)
+  expect(@page.warning_message.text.gsub(/× /, '')).to eq(msg)
 end
 Then(/^I can see the error message '(.*?)'$/) do |msg|
-  expect(@page.error_message.text).to eq(msg)
+  expect(@page.error_message.text.gsub(/× /, '')).to eq(msg)
 end
 Then(/^I can see the validation message '(.*?)'$/) do |msgs|
   expect(@page.form.validation_messages).to eq(msgs.split('|'))
