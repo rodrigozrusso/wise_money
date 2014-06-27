@@ -1,3 +1,13 @@
+Given /^I am at '(.*?)'$/ do |page|
+  @page = "Pages::#{page}".constantize.new.load
+end
+
+Then /^I should be redirected to '(.*?)'$/ do |page|
+  @page = "Pages::#{page}".constantize.new
+  expect(@page.displayed?).to be true
+end
+
+
 Dado(/^exista (\d+ )?"(.*?)"$/) do |count, fabricators|
   count ||= 1
   @models = fabricators.split(',').map{|f| Fabricate.times(count.to_i, f.to_sym)}.flatten
