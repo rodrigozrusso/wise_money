@@ -24,14 +24,8 @@ Then(/^the page title should be '(.*?)'$/) do |title|
   expect(@page.title).to eq('WiseMoney')
 end
 
-Then(/^I can see the success message '(.*?)'$/) do |msg|
-  expect(@page.success_message.text.gsub(/× /, '')).to eq(msg)
-end
-Then(/^I can see the warning message '(.*?)'$/) do |msg|
-  expect(@page.warning_message.text.gsub(/× /, '')).to eq(msg)
-end
-Then(/^I can see the error message '(.*?)'$/) do |msg|
-  expect(@page.error_message.text.gsub(/× /, '')).to eq(msg)
+Then(/^I can see the (success|warning|error) message '(.*?)'$/) do |type, msg|
+  expect(@page.message(type)).to eq(msg)
 end
 Then(/^I can see the validation message '(.*?)'$/) do |msgs|
   expect(@page.form.validation_messages).to eq(msgs.split('|'))

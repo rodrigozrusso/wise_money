@@ -48,7 +48,7 @@
     And I am at 'CapitalIndex'
     When I click button 'Remove'
     Then the remove modal should be opened
-    And the remove modal should has the title 'Do you really want to remove?'
+    And the remove modal title should be 'Do you really want to remove?'
     And the remove modal should show the last saved capital
 
   @smoke_test

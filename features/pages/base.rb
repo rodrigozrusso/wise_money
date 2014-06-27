@@ -18,5 +18,9 @@ module Pages
       self
     end
 
+    def message(type)
+      send("#{type}_message").text.gsub(/× /, '')
+    end
+
   end
 end
