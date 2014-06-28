@@ -11,7 +11,7 @@ module Pages
     elements :table_headers, 'table thead th'
     elements :capitals, 'table tbody tr'
 
-    section :delete_modal, Pages::Sections::DeleteModal, '.delete-modal'
+    section :delete_modal, Pages::Sections::CrudDeleteModal, '.delete-modal'
 
   end
 end

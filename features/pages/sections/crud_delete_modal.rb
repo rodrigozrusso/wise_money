@@ -1,6 +1,6 @@
 module Pages
   module Sections
-    class DeleteModal < SitePrism::Section
+    class CrudDeleteModal < SitePrism::Section
 
       element :title, '.delete-modal-title'
       element :body, '.delete-modal-body'

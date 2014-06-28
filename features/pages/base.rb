@@ -1,6 +1,5 @@
-require_relative 'sections/capital_form'
-require_relative 'sections/delete_modal'
-require_relative 'sections/menu'
+require_relative 'sections/crud_form'
+Dir["#{File.dirname(__FILE__)}/sections/*.rb"].each {|file| require file }
 
 module Pages
   class Base < SitePrism::Page
