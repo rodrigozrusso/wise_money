@@ -1,17 +1,16 @@
-require_relative 'base'
+require_relative 'crud_index'
 
 module Pages
-  class TransactionIndex < Pages::Base
+  class TransactionIndex < Pages::CrudIndex
 
     set_url 'transactions'
     set_url_matcher /transactions/
 
-    element :no_results, '.no-results'
+    def map_models(transactions)
+    end
 
-    elements :table_headers, 'table thead th'
-    elements :transactions, 'table tbody tr'
-
-    section :delete_modal, Pages::Sections::CrudDeleteModal, '.delete-modal'
+    def map_model_to_delete(transaction)
+    end
 
   end
 end

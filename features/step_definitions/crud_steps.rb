@@ -1,6 +1,6 @@
 Given(/^I fill the form with '(.*?)'$/) do |fabricator|
   @models = fabricator.present? ? [Fabricate.build(fabricator.to_sym)] : []
-  @page.form.fill(@models.first)
+  @page.form.fill(@models.last)
 end
 
 Given(/^I fill the form with the last saved$/) do
@@ -12,7 +12,7 @@ Then(/^the page should has no results with the message '(.*?)'$/) do |msg|
 end
 
 Then(/^the page should has columns '(.*?)'$/) do |columns|
-  expect(@page.table_headers.map { |h| h.text }).to eq(columns.split('|'))
+  expect(@page.map_columns).to eq(columns.split('|'))
 end
 
 Then(/^the page should list all the saved$/) do
