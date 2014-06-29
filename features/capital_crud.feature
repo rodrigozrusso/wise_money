@@ -115,6 +115,14 @@
     And I can see the error message 'Please review the problems below:'
     And I can see the validation message '* Name can't be blank'
 
+  Scenario: Create page - validation maximum lenght fields
+    Given I am at 'CapitalNew'
+    And I fill the form with 'capital_maximum_lenght'
+    When I click button 'Save'
+    Then I should be redirected to 'CapitalNew'
+    And I can see the error message 'Please review the problems below:'
+    And I can see the validation message '* Name is too long (maximum is 150 characters)'
+
   Scenario: Create page - validation unicity
     Given there is 'capital_valid'
     And I am at 'CapitalNew'
@@ -154,6 +162,15 @@
     Then I should be redirected to 'CapitalEdit'
     And I can see the error message 'Please review the problems below:'
     And I can see the validation message '* Name can't be blank'
+
+  Scenario: Edit page - validation maximum lenght fields
+    Given there is 'capital_valid'
+    And I am at 'CapitalEdit' by the last saved
+    And I fill the form with 'capital_maximum_lenght'
+    When I click button 'Save'
+    Then I should be redirected to 'CapitalEdit'
+    And I can see the error message 'Please review the problems below:'
+    And I can see the validation message '* Name is too long (maximum is 150 characters)'
 
   Scenario: Edit page - validation unicity
     Given there is 'capital_saving_account,capital_valid'

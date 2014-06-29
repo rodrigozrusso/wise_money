@@ -8,3 +8,7 @@ end
 Fabricator(:capital_saving_account, from: :capital_valid) do
   name 'saving account'
 end
+
+Fabricator(:capital_maximum_lenght, from: :capital_valid) do
+  name 'a' * 151
+end
