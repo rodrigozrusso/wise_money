@@ -49,7 +49,7 @@
     When I click button 'Remove'
     Then the remove modal should be opened
     And the remove modal title should be 'Do you really want to remove?'
-    And the remove modal should show the last saved capital
+    And the remove modal should show the last saved
 
   @smoke_test
   Scenario: Delete modal - remove button

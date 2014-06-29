@@ -13,12 +13,16 @@ module Pages
 
     section :delete_modal, Pages::Sections::CrudDeleteModal, '.delete-modal'
 
-    def map_list
+    def map_items
       items.map{|c| c.all('td')[0..-4].map{|t| t.text} }
     end
 
     def map_models(models)
       models.map{|c| [c.id.to_s, c.name]}
+    end
+
+    def map_model_to_delete(model)
+      "#{model.id} - #{model.name}"
     end
 
   end

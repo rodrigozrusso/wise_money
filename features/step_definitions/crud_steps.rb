@@ -17,7 +17,7 @@ end
 
 Then(/^the page should list all the saved$/) do
   expect(@page.has_no_results?).to be false
-  expect(@page.map_list).to eq(@page.map_models(@models))
+  expect(@page.map_items).to eq(@page.map_models(@models))
 end
 
 Then(/^the remove modal should be opened$/) do
@@ -26,4 +26,8 @@ end
 
 Then(/^the remove modal title should be '(.*?)'$/) do |title|
   expect(@page.delete_modal.title.text).to eq(title)
+end
+
+Then(/^the remove modal should show the last saved$/) do
+  expect(@page.delete_modal.body.text).to eq(@page.map_model_to_delete(@models.last))
 end
