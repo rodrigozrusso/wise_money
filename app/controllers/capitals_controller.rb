@@ -1,4 +1,5 @@
 class CapitalsController < ApplicationController
+
   before_action :set_menu
   before_action :set_capital, only: [:show, :edit, :update, :destroy]
 
@@ -51,13 +52,14 @@ class CapitalsController < ApplicationController
   end
 
   private
-    def set_capital
-      @capital = Capital.find(params[:id])
-    end
 
-    def capital_params
-      params.require(:capital).permit(:name)
-    end
+  def set_capital
+    @capital = Capital.find(params[:id])
+  end
+
+  def capital_params
+    params.require(:capital).permit(:name)
+  end
 
   def set_menu
     @menu_active = :capital
