@@ -12,7 +12,7 @@
     <div class="col-sm-offset-2 col-sm-10">
       <%= link_to t('crud.actions.back'), capitals_path, class: 'btn btn-default', role: 'button' %>
       <% if disable %>
-        <%= link_to edit_capital_path(@capital), class: 'btn btn-primary', role: 'button'  do %>
+        <%= link_to edit_capital_path(@capital), class: 'btn btn-primary', role: 'button' do %>
           <span class="glyphicon glyphicon-pencil"></span> <%= t('crud.actions.edit') %>
         <% end %>
       <% else %>
