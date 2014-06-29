@@ -17,12 +17,12 @@ module Pages
       items.map{|c| c.all('td')[0..-4].map{|t| t.text} }
     end
 
-    def map_models(models)
-      models.map{|c| [c.id.to_s, c.name]}
+    def map_models(capitals)
+      capitals.map{|c| [c.id.to_s, c.name]}
     end
 
-    def map_model_to_delete(model)
-      "#{model.id} - #{model.name}"
+    def map_model_to_delete(capital)
+      "#{capital.id} - #{capital.name}"
     end
 
   end

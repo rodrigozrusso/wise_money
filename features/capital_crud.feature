@@ -74,7 +74,7 @@
     Given there is 'capital_valid'
     And I am at 'CapitalShow' by the last saved
     Then the page title should be 'Capitals Show'
-    And the page should show the last saved capital
+    And the page should show the last saved
 
   Scenario: Show page - back button
     Given there is 'capital_valid'
@@ -106,7 +106,7 @@
     And I fill the form with 'capital_valid'
     When I click button 'Save'
     Then I should be redirected to 'CapitalShow'
-    And the page should show the last saved capital
+    And the page should show the last saved
 
   Scenario: Create page - validation empty fields
     Given I am at 'CapitalNew'
@@ -129,7 +129,7 @@
     Given there is 'capital_valid'
     And I am at 'CapitalEdit' by the last saved
     Then the page title should be 'Capitals Edit'
-    And the page should show the last saved capital
+    And the page should show the last saved
 
   Scenario: Edit page - back button
     Given there is 'capital_valid'
@@ -144,7 +144,7 @@
     And I fill the form with 'capital_saving_account'
     When I click button 'Save'
     Then I should be redirected to 'CapitalShow'
-    And the page should show the last saved capital
+    And the page should show the last saved
 
   Scenario: Edit page - validation empty fields
     Given there is 'capital_valid'

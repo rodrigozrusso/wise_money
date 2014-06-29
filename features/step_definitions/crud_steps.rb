@@ -31,3 +31,7 @@ end
 Then(/^the remove modal should show the last saved$/) do
   expect(@page.delete_modal.body.text).to eq(@page.map_model_to_delete(@models.last))
 end
+
+Then(/^the page should show the last saved$/) do
+  expect(@page.form.map_fields).to eq(@page.form.map_model(@models.last))
+end
