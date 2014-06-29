@@ -20,7 +20,7 @@
   Scenario: List page - 5 items
     Given there are 5 'capital_valid'
     And I am at 'CapitalIndex'
-    Then the page should list the saved capitals
+    Then the page should list all the saved
 
   @smoke_test
   Scenario: List page - create button
@@ -67,7 +67,7 @@
     When I click button 'Remove'
     And I click button 'Cancel'
     Then I should be redirected to 'CapitalIndex'
-    And the page should list the saved capitals
+    And the page should list all the saved
 
   @smoke_test
   Scenario: Show page - info

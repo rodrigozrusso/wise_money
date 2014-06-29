@@ -9,9 +9,17 @@ module Pages
     element :no_results, '.no-results'
 
     elements :table_headers, 'table thead th'
-    elements :capitals, 'table tbody tr'
+    elements :items, 'table tbody tr'
 
     section :delete_modal, Pages::Sections::CrudDeleteModal, '.delete-modal'
+
+    def map_list
+      items.map{|c| c.all('td')[0..-4].map{|t| t.text} }
+    end
+
+    def map_models(models)
+      models.map{|c| [c.id.to_s, c.name]}
+    end
 
   end
 end

@@ -6,6 +6,7 @@ end
 Given(/^I am at '(.*?)'$/) do |page|
   @page = "Pages::#{page}".constantize.new.load
 end
+
 Given(/^I am at '(.*?)' by the last saved$/) do |page|
   @page = "Pages::#{page}".constantize.new.load(id: @models.last.id)
 end
@@ -27,6 +28,7 @@ end
 Then(/^I can see the (success|warning|error) message '(.*?)'$/) do |type, msg|
   expect(@page.message(type)).to eq(msg)
 end
+
 Then(/^I can see the validation message '(.*?)'$/) do |msgs|
   expect(@page.form.validation_messages).to eq(msgs.split('|'))
 end
