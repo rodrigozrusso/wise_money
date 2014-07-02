@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
   resources :healthchecks, only: [:index]
-  resources :transactions
 
-  ['capital'].each do |model|
+  [:capital, :transaction].each do |model|
     resources "#{model}s".to_sym, except: [:create, :update]
     post "#{model}s/new", to: "#{model}s#create", as: "create_#{model}".to_sym
     put "#{model}s/:id/edit", to: "#{model}s#update"

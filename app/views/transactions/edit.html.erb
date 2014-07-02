@@ -1,6 +1,9 @@
-<h1>Editing transaction</h1>
+<h1>
+  <div class="row">
+    <div class="col-md-10 page-title">
+      <%= t('activerecord.models.transaction.other') %> <small><%= t('crud.title.edit') %></small>
+    </div>
+  </div>
+</h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @transaction %> |
-<%= link_to 'Back', transactions_path %>

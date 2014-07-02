@@ -1,41 +1,29 @@
-<%= form_for(@transaction) do |f| %>
-  <% if @transaction.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+<% disable ||= false %>
+<%= simple_form_for @transaction,
+    url: @transaction.id ? update_transaction_path(@transaction) : create_transaction_path,
+    html: {class: 'form-horizontal', role: 'form'} do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% @transaction.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+  <div class="form-inputs">
+    <%= f.input :description, disabled: disable %>
+    <%= f.input :status, disabled: disable, collection: TransactionStatus.to_a %>
+    <%= f.input :total, disabled: disable %>
+    <%= f.input :checked_at, disabled: disable, as: :string, input_html: {class: 'datepicker col-span-3', type: 'date'} %>
+    <%= f.input :checked_at, disabled: disable, as: :date, start_year: Date.today.year - 20, end_year: Date.today.year + 20, order: [:day, :month, :year] %>
+    <%= f.association :income_capital, disabled: disable, label_method: :to_s %>
+    <%= f.association :expense_capital, disabled: disable, label_method: :to_s %>
+  </div>
+
+  <div class="form-actions form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= link_to t('crud.actions.back'), transactions_path, class: 'btn btn-default', role: 'button' %>
+      <% if disable %>
+        <%= link_to edit_transaction_path(@transaction), class: 'btn btn-primary', role: 'button' do %>
+          <span class="glyphicon glyphicon-pencil"></span> <%= t('crud.actions.edit') %>
+        <% end %>
+      <% else %>
+        <%= f.button :submit, class: 'btn btn-primary', value: t('crud.actions.save') %>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.select :status, [[ t('helpers.select.prompt') , nil ]] | TransactionStatus.to_a %>
-  </div>
-  <div class="field">
-    <%= f.label :total %><br>
-    <%= f.text_field :total %>
-  </div>
-  <div class="field">
-    <%= f.label :checked_at %><br>
-    <%= f.datetime_select :checked_at %>
-  </div>
-  <div class="field">
-    <%= f.label :income_capital_id %><br>
-    <%= f.text_field :income_capital_id %>
-  </div>
-  <div class="field">
-    <%= f.label :expense_capital_id %><br>
-    <%= f.text_field :expense_capital_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>
