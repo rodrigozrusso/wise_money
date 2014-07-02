@@ -3,6 +3,7 @@ module Pages
     class CrudForm < SitePrism::Section
 
       elements :field_inputs, '.form-inputs input'
+      elements :field_selects, '.form-inputs select'
       elements :field_groups_with_error, '.form-inputs .has-error'
 
       def validation_messages
@@ -12,7 +13,10 @@ module Pages
       end
 
       def map_fields
-        field_inputs.map{|f| f.value }
+        fields = []
+        fields << field_inputs.map{|f| f.value }
+        fields << field_selects.map{|f| f.find("option[value='#{f.value}']").text }
+        fields.flatten
       end
 
     end
