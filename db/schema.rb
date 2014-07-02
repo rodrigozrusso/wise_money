@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140620020748) do
     t.string   "description"
     t.integer  "status"
     t.decimal  "total"
-    t.datetime "checked_at"
+    t.date     "checked_at"
     t.integer  "income_capital_id"
     t.integer  "expense_capital_id"
     t.datetime "created_at"
