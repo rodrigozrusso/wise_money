@@ -9,3 +9,15 @@ Fabricator(:transaction_valid, from: :transaction) do
   income_capital { Capital.all.sample }
   expense_capital { Capital.all.sample }
 end
+
+Fabricator(:transaction_light_bill, from: :transaction_valid) do
+  description 'light bill'
+  status { TransactionStatus.list[0] }
+  total 100.99
+  checked_at Date.new(2014,6,23)
+  income_capital { Fabricate.build(:capital_saving_account) }
+end
+
+Fabricator(:transaction_maximum_lenght, from: :transaction_valid) do
+  description 'a' * 151
+end
