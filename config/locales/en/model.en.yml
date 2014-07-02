@@ -5,9 +5,14 @@ en:
       capital:
         one: 'Capital'
         other: 'Capitals'
+      transaction:
+        one: 'Transaction'
+        other: 'Transactions'
     attributes:
       capital:
         name: 'Name'
+      transaction:
+        description: 'Description'
   enumerations:
     transaction_status:
       to_confirm: 'To confirm'
