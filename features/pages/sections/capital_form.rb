@@ -3,7 +3,7 @@ module Pages
     class CapitalForm < Pages::Sections::CrudForm
 
       def fill(capital)
-        fields[0].set capital ? capital.name : ''
+        field_inputs[0].set capital ? capital.name : ''
       end
 
       def map_model(capital)
