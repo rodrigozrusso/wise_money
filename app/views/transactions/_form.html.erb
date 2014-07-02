@@ -8,8 +8,7 @@
     <%= f.input :description, disabled: disable %>
     <%= f.input :status, disabled: disable, collection: TransactionStatus.to_a %>
     <%= f.input :total, disabled: disable %>
-    <%= f.input :checked_at, disabled: disable, as: :string, input_html: {class: 'datepicker col-span-3', type: 'date'} %>
-    <%= f.input :checked_at, disabled: disable, as: :date, start_year: Date.today.year - 20, end_year: Date.today.year + 20, order: [:day, :month, :year] %>
+    <%= f.input :checked_at, disabled: disable, as: :string, input_html: {class: 'date', value: f.object.checked_at ? localize(f.object.checked_at, format: '%d/%m/%Y') : '' } %>
     <%= f.association :income_capital, disabled: disable, label_method: :to_s %>
     <%= f.association :expense_capital, disabled: disable, label_method: :to_s %>
   </div>
