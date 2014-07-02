@@ -10,10 +10,6 @@ module Pages
         [capital.name]
       end
 
-      def map_fields
-        fields.map{|f| f.value }
-      end
-
     end
   end
 end
