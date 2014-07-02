@@ -2,6 +2,12 @@ require 'spec_helper'
 
 describe Capital do
 
+  describe '.to_s' do
+    let(:capital) { Fabricate.build(:capital_saving_account, id: 5) }
+
+    it { expect(capital.to_s).to eq('5 - saving account') }
+  end
+
   describe 'validations' do
 
     context 'valid' do
