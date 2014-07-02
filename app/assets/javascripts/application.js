@@ -12,6 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.mask
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+$(document).ready(function(){
+  $('input.date').mask('00/00/0000');
+});
