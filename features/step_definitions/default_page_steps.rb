@@ -1,10 +1,9 @@
-Given(/^there (?:is|are) (\d+ )?'(.*?)'$/) do |count, fabricators|
-  count ||= 1
-  @models = fabricators.split(',').map{|f| Fabricate.times(count.to_i, f.to_sym)}.flatten
-end
-
 Given(/^I am at '(.*?)'$/) do |page|
   @page = "Pages::#{page}".constantize.new.load
+end
+
+Given(/^I am at '(.*?)' by the first saved$/) do |page|
+  @page = "Pages::#{page}".constantize.new.load(id: @models.first.id)
 end
 
 Given(/^I am at '(.*?)' by the last saved$/) do |page|

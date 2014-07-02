@@ -1,9 +1,27 @@
+Given(/^there (?:is|are) (\d+ )?'(.*?)'$/) do |count, fabricators|
+  count ||= 1
+  @models ||= []
+  @models << fabricators.split(',').map{|f| count.to_i.times.map { Fabricate.build(f.to_sym) }}
+  @models = @models.flatten
+end
+
+Given(/^there (?:is|are) (\d+ )?'(.*?)' stored$/) do |count, fabricators|
+  count ||= 1
+  @models ||= []
+  @models << fabricators.split(',').map{|f| Fabricate.times(count.to_i, f.to_sym)}
+  @models = @models.flatten
+end
+
+Given(/^its '(.*?)' is stored$/) do |field|
+  @models.last.send(field.to_sym).save
+end
+
 Given(/^I fill the form with '(.*?)'$/) do |fabricator|
   @models = fabricator.present? ? [Fabricate.build(fabricator.to_sym)] : []
   @page.form.fill(@models.last)
 end
 
-Given(/^I fill the form with the last saved$/) do
+Given(/^I fill the form with the last$/) do
   @page.form.fill(@models.last)
 end
 

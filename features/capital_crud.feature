@@ -18,7 +18,7 @@
 
   @smoke_test
   Scenario: List page - 5 items
-    Given there are 5 'capital_valid'
+    Given there are 5 'capital_valid' stored
     And I am at 'CapitalIndex'
     Then the page should list all the saved
 
@@ -30,21 +30,21 @@
 
   @smoke_test
   Scenario: List page - show button
-    Given there is 'capital_valid'
+    Given there is 'capital_valid' stored
     And I am at 'CapitalIndex'
     When I click button 'Show'
     Then I should be redirected to 'CapitalShow'
 
   @smoke_test
   Scenario: List page - edit button
-    Given there is 'capital_valid'
+    Given there is 'capital_valid' stored
     And I am at 'CapitalIndex'
     When I click button 'Edit'
     Then I should be redirected to 'CapitalEdit'
 
   @smoke_test
   Scenario: Delete modal - info
-    Given there is 'capital_valid'
+    Given there is 'capital_valid' stored
     And I am at 'CapitalIndex'
     When I click button 'Remove'
     Then the remove modal should be opened
@@ -53,7 +53,7 @@
 
   @smoke_test
   Scenario: Delete modal - remove button
-    Given there is 'capital_valid'
+    Given there is 'capital_valid' stored
     And I am at 'CapitalIndex'
     When I click button 'Remove'
     And I click button 'Remove!'
@@ -62,7 +62,7 @@
     And the page should has no results with the message 'No results was found!'
 
   Scenario: Delete modal - cancel button
-    Given there is 'capital_valid'
+    Given there is 'capital_valid' stored
     And I am at 'CapitalIndex'
     When I click button 'Remove'
     And I click button 'Cancel'
@@ -71,20 +71,20 @@
 
   @smoke_test
   Scenario: Show page - info
-    Given there is 'capital_valid'
+    Given there is 'capital_valid' stored
     And I am at 'CapitalShow' by the last saved
     Then the page title should be 'Capitals Show'
     And the page should show the last saved
 
   Scenario: Show page - back button
-    Given there is 'capital_valid'
+    Given there is 'capital_valid' stored
     And I am at 'CapitalShow' by the last saved
     When I click button 'Back'
     Then I should be redirected to 'CapitalIndex'
 
   @smoke_test
   Scenario: Show page - edit button
-    Given there is 'capital_valid'
+    Given there is 'capital_valid' stored
     And I am at 'CapitalShow' by the last saved
     When I click button 'Edit'
     Then I should be redirected to 'CapitalEdit'
@@ -124,9 +124,9 @@
     And I can see the validation message '* Name is too long (maximum is 150 characters)'
 
   Scenario: Create page - validation unicity
-    Given there is 'capital_valid'
+    Given there is 'capital_valid' stored
     And I am at 'CapitalNew'
-    And I fill the form with the last saved
+    And I fill the form with the last
     When I click button 'Save'
     Then I should be redirected to 'CapitalNew'
     And I can see the error message 'Please review the problems below:'
@@ -134,20 +134,20 @@
 
   @smoke_test
   Scenario: Edit page - info
-    Given there is 'capital_valid'
+    Given there is 'capital_valid' stored
     And I am at 'CapitalEdit' by the last saved
     Then the page title should be 'Capitals Edit'
     And the page should show the last saved
 
   Scenario: Edit page - back button
-    Given there is 'capital_valid'
+    Given there is 'capital_valid' stored
     And I am at 'CapitalEdit' by the last saved
     When I click button 'Back'
     Then I should be redirected to 'CapitalIndex'
 
   @smoke_test
   Scenario: Edit page - save
-    Given there is 'capital_valid'
+    Given there is 'capital_valid' stored
     And I am at 'CapitalEdit' by the last saved
     And I fill the form with 'capital_saving_account'
     When I click button 'Save'
@@ -155,7 +155,7 @@
     And the page should show the last saved
 
   Scenario: Edit page - validation empty fields
-    Given there is 'capital_valid'
+    Given there is 'capital_valid' stored
     And I am at 'CapitalEdit' by the last saved
     And I fill the form with ''
     When I click button 'Save'
@@ -164,7 +164,7 @@
     And I can see the validation message '* Name can't be blank'
 
   Scenario: Edit page - validation maximum lenght fields
-    Given there is 'capital_valid'
+    Given there is 'capital_valid' stored
     And I am at 'CapitalEdit' by the last saved
     And I fill the form with 'capital_maximum_lenght'
     When I click button 'Save'
@@ -173,7 +173,7 @@
     And I can see the validation message '* Name is too long (maximum is 150 characters)'
 
   Scenario: Edit page - validation unicity
-    Given there is 'capital_saving_account,capital_valid'
+    Given there is 'capital_saving_account,capital_valid' stored
     And I am at 'CapitalEdit' by the last saved
     And I fill the form with 'capital_saving_account'
     When I click button 'Save'
