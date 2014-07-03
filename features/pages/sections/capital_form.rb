@@ -2,12 +2,12 @@ module Pages
   module Sections
     class CapitalForm < Pages::Sections::CrudForm
 
-      def fill(capital)
-        field_inputs[0].set capital ? capital.name : ''
+      def fill(c)
+        field_inputs[0].set c ? c.name : ''
       end
 
-      def map_model(capital)
-        [capital.name]
+      def map_model(c)
+        [c.name]
       end
 
     end

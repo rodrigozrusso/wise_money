@@ -2,23 +2,23 @@ module Pages
   module Sections
     class TransactionForm < Pages::Sections::CrudForm
 
-      def fill(transaction)
-        field_inputs[0].set transaction ? transaction.description : ''
-        field_inputs[1].set transaction ? transaction.total : ''
-        field_inputs[2].set transaction ? transaction.checked_at.strftime('%d/%m/%Y') : ''
-        field_selects[0].find("option[value=\"#{transaction ? transaction.status : ''}\"]").select_option
-        field_selects[1].find("option[value=\"#{transaction && transaction.income_capital ? transaction.income_capital.id : ''}\"]").select_option
-        field_selects[2].find("option[value=\"#{transaction && transaction.expense_capital ? transaction.expense_capital.id : ''}\"]").select_option
+      def fill(t)
+        field_inputs[0].set t ? t.description : ''
+        field_inputs[1].set t ? t.total : ''
+        field_inputs[2].set t ? t.checked_at : ''
+        select_by_value(field_selects[0], t ? t.status : '')
+        select_by_value(field_selects[1], t && t.income_capital ? t.income_capital.id : '')
+        select_by_value(field_selects[2], t && t.expense_capital ? t.expense_capital.id : '')
       end
 
-      def map_model(transaction)
+      def map_model(t)
         [
-          transaction.description,
-          transaction.total.to_s,
-          transaction.checked_at.strftime('%d/%m/%Y'),
-          transaction.status_humanize,
-          transaction.income_capital ? transaction.income_capital.to_s : '',
-          transaction.expense_capital ? transaction.expense_capital.to_s : ''
+          t.description,
+          t.total.to_s,
+          t.checked_at.strftime('%d/%m/%Y'),
+          t.status_humanize,
+          t.income_capital ? t.income_capital.to_s : '',
+          t.expense_capital ? t.expense_capital.to_s : ''
         ]
       end
 

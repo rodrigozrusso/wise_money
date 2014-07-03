@@ -19,6 +19,10 @@ module Pages
         fields.flatten
       end
 
+      def select_by_value(select, value)
+        select.find("option[value=\"#{value ? value : ''}\"]").select_option
+      end
+
     end
   end
 end
