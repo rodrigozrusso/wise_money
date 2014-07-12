@@ -46,7 +46,7 @@
           <% end %>
         </td>
         <td>
-          <%= render 'delete_modal', transaction: transaction %>
+          <%= render 'delete_modal', model: transaction %>
           <a href="#" rel="nofollow" data-toggle="modal" data-target="#delete-modal-<%= transaction.id%>">
             <span class="glyphicon glyphicon-trash blue"></span> <%= t('crud.actions.destroy') %>
           </a>

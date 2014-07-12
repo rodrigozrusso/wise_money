@@ -40,7 +40,7 @@
           <%% end %>
         </td>
         <td>
-          <%%= render 'delete_modal', <%= singular_table_name %>: <%= singular_table_name %> %>
+          <%%= render 'delete_modal', model: <%= singular_table_name %> %>
           <a href="#" rel="nofollow" data-toggle="modal" data-target="#delete-modal-<%%= <%= singular_table_name %>.id%>">
             <span class="glyphicon glyphicon-trash blue"></span> <%%= t('crud.actions.destroy') %>
           </a>

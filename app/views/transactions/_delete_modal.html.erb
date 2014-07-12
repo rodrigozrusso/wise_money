@@ -1,21 +1,21 @@
-<div class="modal fade delete-modal" id="delete-modal-<%= transaction.id%>" tabindex="-1" role="dialog" aria-labelledby="delete-modal-label-<%= transaction.id%>" aria-hidden="true">
+<div class="modal fade delete-modal" id="delete-modal-<%= model.id%>" tabindex="-1" role="dialog" aria-labelledby="delete-modal-label-<%= model.id%>" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
 
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3 class="modal-title delete-modal-title" id="delete-modal-label-<%= transaction.id%>">
+        <h3 class="modal-title delete-modal-title" id="delete-modal-label-<%= model.id%>">
           <%= t('crud.confirm') %>
         </h3>
       </div>
 
       <div class="modal-body delete-modal-body">
-        <h4><b><%= transaction.id %></b> - <%= transaction.description %> - <%= transaction.status_humanize %> - <%= transaction.total %> - <%= transaction.checked_at %> - <%= transaction.income_capital %> - <%= transaction.expense_capital %></h4>
+        <h4><%= model %></h4>
       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal"><%= t('crud.actions.cancel') %></button>
-        <%= link_to transaction, method: :delete, class: 'btn btn-danger', role: 'button'  do %>
+        <%= link_to model, method: :delete, class: 'btn btn-danger', role: 'button'  do %>
           <span class="glyphicon glyphicon-trash"></span> <%= t('crud.actions.destroy-confirm') %>
         <% end %>
       </div>

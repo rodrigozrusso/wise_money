@@ -36,7 +36,7 @@
           <% end %>
         </td>
         <td>
-          <%= render 'delete_modal', capital: capital %>
+          <%= render 'delete_modal', model: capital %>
           <a href="#" rel="nofollow" data-toggle="modal" data-target="#delete-modal-<%= capital.id%>">
             <span class="glyphicon glyphicon-trash blue"></span> <%= t('crud.actions.destroy') %>
           </a>
