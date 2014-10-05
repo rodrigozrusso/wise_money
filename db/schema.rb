@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20140620020748) do
 
   create_table "capitals", force: true do |t|
-    t.string   "name"
+    t.string   "name",       limit: 150, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 20140620020748) do
   add_index "capitals", ["name"], name: "index_capitals_on_name", unique: true
 
   create_table "transactions", force: true do |t|
-    t.string   "description"
-    t.integer  "status"
-    t.decimal  "total"
+    t.string   "description",        limit: 150,                         null: false
+    t.integer  "status",                                                 null: false
+    t.decimal  "total",                          precision: 8, scale: 2
     t.date     "checked_at"
     t.integer  "income_capital_id"
     t.integer  "expense_capital_id"
